@@ -1,54 +1,35 @@
-var moveCircleTimer;
+var gameTimer,
+startGameButton = document.getElementById('startGameButton'),
+pauseResumeGameButton = document.getElementById('pauseResumeGameButton');
 
-var isGoingUp = true,
-        isGoingRight = true,
-        positionX = 50,
-        positionY = 25,
-        radius = 5;
+var gameFieldCanvas = document.getElementById('gameFieldCanvas').getContext('2d');
 
-function startCircleMovement() {
-    var canvas = document.getElementById('gameField').getContext('2d');
+startGameButton.addEventListener('click', startGame, false);
+pauseResumeGameButton.addEventListener('click', pauseResumeGame, false);
 
-    moveCircleTimer = setInterval(moveCircle, 10);
+function startGame() {
+    gameTimer = setInterval(playGame, gameSpeed);
+    initializeSettings();
+    playGame()
+}
 
-    function moveCircle() {
-        //Clear the canvas
-        canvas.clearRect(0, 0, 300, 200);
-        //Draw the circle
-        canvas.beginPath();
-        canvas.arc(positionX, positionY, radius, degreesToRadians(0), degreesToRadians(360));
-        canvas.closePath();
-        canvas.fill();
-        //Update direction
-        if (isGoingUp) {
-            positionY--;
-        }
-        else {
-            positionY++;
-        }
+function playGame() {
+    clearGameField()
+    drawBall();
+    moveBall();
+}
 
-        if (isGoingRight) {
-            positionX++;
-        }
-        else {
-            positionX--;
-        }
+function clearGameField() {
+    gameFieldCanvas.clearRect(0, 0, gameFieldCanvas.canvas.width, gameFieldCanvas.canvas.height);
+}
 
-        //Change course if needed
-        if (positionX - radius === 0) {
-            isGoingRight = true;
-        }
-
-        if (positionX + radius === canvas.canvas.width) {
-            isGoingRight = false;
-        }
-
-        if (positionY - radius === 0) {
-            isGoingUp = false;
-        }
-
-        if (positionY + radius === canvas.canvas.height) {
-            isGoingUp = true;
-        }
+function pauseResumeGame() {
+    if (pauseResumeGameButton.innerText === 'Pause') {
+        clearInterval(gameTimer);
+        pauseResumeGameButton.innerText = 'Resume';
+    }
+    else {
+        startGame();
+        pauseResumeGameButton.innerText = 'Pause';
     }
 }

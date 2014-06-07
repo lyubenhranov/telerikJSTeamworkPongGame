@@ -1,0 +1,1 @@
+var scoreBoardCanvas = document.getElementById('scoreBoardCanvas').getContext('2d');
