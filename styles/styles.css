@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Calibri, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+}
+
+div {
+    padding: 0 10px;
+}
+
+div.exerciseContainer {
+    width: 600px;
+}
+
+div p {
+    margin-bottom: 0;
+}
+
+span {
+    font-style: italic;
+    font-weight: bold;
+}
+
+button {
+    background-color: lightgray;
+    border: 1px solid gray; 
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: gray;
+    color: white;
+}
+
+input[type='text'] {
+    width: 150px;
+    border: 1px solid lightgray;
+}
+
+input#exSevenUrl {
+    width: 250px;
+}
+
+input[type='text']:hover {
+    border: 1px solid gray;
+}
+
+span#exFourResult{
+    display: inline-block;
+}
+
+textarea {
+    font-family: Calibri, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+    font-size: 1em;
+
+    width: 300px;
+    height: 100px;
+    border: 1px solid lightgray;
+}
+
+textarea:hover {
+    border: 1px solid gray;
+}
+
+.bold {
+    font-weight: 800;
+    font-style: italic;
+}
+
+canvas {
+    border: 1px dotted gray;
+    display: block;
+    margin-top: 5px;
+}
+
+
+
