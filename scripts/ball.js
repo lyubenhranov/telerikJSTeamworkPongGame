@@ -32,10 +32,12 @@ function moveBall() {
     //Change course if needed
     if (ball.positionX - ball.radius === 0) {
         ball.isGoingRight = true;
+        goalScored('playerTwo');
     }
 
     if (ball.positionX + ball.radius === gameFieldCanvas.canvas.width) {
         ball.isGoingRight = false;
+        goalScored('playerOne');
     }
 
     if (ball.positionY - ball.radius === 0) {

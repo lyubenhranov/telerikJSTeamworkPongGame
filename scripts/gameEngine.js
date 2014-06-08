@@ -1,8 +1,7 @@
 var gameTimer,
-startGameButton = document.getElementById('startGameButton'),
-pauseResumeGameButton = document.getElementById('pauseResumeGameButton');
-
-var gameFieldCanvas = document.getElementById('gameFieldCanvas').getContext('2d');
+    startGameButton = document.getElementById('startGameButton'),
+    pauseResumeGameButton = document.getElementById('pauseResumeGameButton'),
+    gameFieldCanvas = document.getElementById('gameFieldCanvas').getContext('2d');
 
 startGameButton.addEventListener('click', startGame, false);
 pauseResumeGameButton.addEventListener('click', pauseResumeGame, false);

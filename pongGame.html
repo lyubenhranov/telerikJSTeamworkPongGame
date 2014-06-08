@@ -3,17 +3,25 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>HW - JS UI - 02 - Canvas</title>
+    <title>Pong Game</title>
     <link rel="stylesheet" href="styles\layout.css" />
+    <link rel="stylesheet" href="styles\scoreBoard.css" />
 </head>
 <body>
-    <div>
-        <canvas id="scoreBoardCanvas"></canvas>
+    <div id="gameContainer">
+        <div id="scoreBoardContainer">
+            <svg class = "playersAvatar" id="playerOneAvatar"></svg>
+            <span class="playersName" id="playerOneName">Player 1</span>
+            <canvas id="scoreBoardCanvas"></canvas>
+            <span class="playersName" id="playerTwoName">Player 2</span>
+            <svg class = "playersAvatar" id="playerTwoAvatar"></svg>
+        </div>
         <canvas id="gameFieldCanvas"></canvas>
         <button id="startGameButton">Start</button>
         <button id="pauseResumeGameButton">Pause</button>      
     </div>
 
+    <script src="scripts\frameworks\kinetic.js"></script>
     <script src="scripts\ball.js"></script>
     <script src="scripts\field.js"></script>
     <script src="scripts\gameEngine.js"></script>
