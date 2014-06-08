@@ -18,7 +18,7 @@ var bonusTypes = [{
 	}
 }];
 
-function applyRandomBonus() {
+function applyRandomBonus()  {
 	if (!isBonusPresent  && !isBonusInEffect) {
 		var bonus = getRandomBonus();
 		
