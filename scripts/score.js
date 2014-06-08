@@ -60,12 +60,12 @@ function drawInitialScoreBoard() {
     scoreBoardCanvas.drawImage(spriteImage, 0, 0, 49.5, 42, 0, 7, 49.5, 42);
     scoreBoardCanvas.drawImage(spriteImage, 0, 0, 49.5, 42, 55, 7, 49.5, 42);
 
-    scoreNotDrawed = false;
+    gameSettings.scoreNotDrawed = false;
 
     resetAvatarFacesToNormal();
 
-    playerOneNameHTMLElement.innerText = playerOneName;
-    playerTwoNameHTMLElement.innerText = playerTwoName;
+    playerOneNameHTMLElement.innerText = gameSettings.playerOneName;
+    playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName;
 }
 
 function drawSadAvatar(player) {

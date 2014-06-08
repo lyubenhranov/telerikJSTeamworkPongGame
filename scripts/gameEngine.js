@@ -1,19 +1,21 @@
 var gameTimer,
     startGameButton = document.getElementById('startGameButton'),
     pauseResumeGameButton = document.getElementById('pauseResumeGameButton'),
-    gameFieldCanvas = document.getElementById('gameFieldCanvas').getContext('2d');
+    canvasElement=document.getElementById('gameFieldCanvas'),
+    gameFieldCanvas = canvasElement.getContext('2d');
 
 startGameButton.addEventListener('click', startGame, false);
 pauseResumeGameButton.addEventListener('click', pauseResumeGame, false);
 
 function startGame() {
-    gameTimer = setInterval(playGame, gameSpeed);
+    gameTimer = setInterval(playGame, gameSettings.gameSpeed);
     initializeSettings();
     playGame()
 }
 
 function playGame() {
     clearGameField()
+    applyRandomBonus();
     drawBall();
     moveBall();
 }
