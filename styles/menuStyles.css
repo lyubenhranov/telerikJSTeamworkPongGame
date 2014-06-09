@@ -56,11 +56,21 @@ div#settings input[type = color] {
     outline: none;
 }
 
+div#settings input[type = text] {
+    border-radius: 5px 0;
+    background-color: black;
+    border: 1px solid #0010BA;
+    color: #1AE000;
+    padding-left: 5px;
+    width: 120px;
+    outline: none;
+}
+
 div#settings select {
     color: #1AE000;
     background-color: black;
     border: 1px solid #0010BA;
-    border-radius: 5px;
+    border-radius: 5px 0;
     outline: none;
 }
 
