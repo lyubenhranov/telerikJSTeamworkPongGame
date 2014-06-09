@@ -2,35 +2,121 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Pong Game</title>
-    <link rel="stylesheet" href="styles\layout.css" />
-    <link rel="stylesheet" href="styles\scoreBoard.css" />
-    <link rel="stylesheet" href="styles\gameField.css" />
+    <link rel="stylesheet" href="styles\layout.css"/>
+    <link rel="stylesheet" href="styles\scoreBoard.css"/>
+    <link rel="stylesheet" href="styles\gameField.css"/>
+    <link href="styles/menuStyles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <div id="gameContainer">
-        <div id="scoreBoardContainer">
-            <svg class="playersAvatar" id="playerOneAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
-            <span class="playersName" id="playerOneName"></span>
-            <canvas id="scoreBoardCanvas"></canvas>
-            <span class="playersName" id="playerTwoName"></span>
-            <svg class="playersAvatar" id="playerTwoAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
-        </div>
-        <canvas id="gameFieldCanvas"></canvas>
-        <button id="startGameButton">Start</button>
-        <button id="pauseResumeGameButton">Pause</button>      
-    </div>
+<input id="settings-btn" type="button" value="Show/Hide Settings">
 
-    <script src="scripts\frameworks\kinetic.js"></script>
-    <script src="scripts\utilities.js"></script>
-    <script src="scripts\ball.js"></script>
-    <script src="scripts\field.js"></script>
-    <script src="scripts\fieldObjects.js"></script>
-    <script src="scripts\gameEngine.js"></script>
-    <script src="scripts\players.js"></script>
-    <script src="scripts\score.js"></script>
-    <script src="scripts\settings.js"></script>
-    
+<div id="settings">
+    <ul>
+        <li>
+            <fieldset id="field-settings">
+                <legend>Field settings</legend>
+                <label for="resolution">Field size:
+                    <select id="resolution" name="field-size">
+                        <option value="300x150" selected>Small</option>
+                        <option value="500x280">Medium</option>
+                        <option value="800x600">Large</option>
+                    </select>
+                </label>
+                <label for="field-color">Field color:
+                    <input id="field-color" type="color">
+                </label>
+                <label for="background-color">Background color:
+                    <input id="background-color" type="color">
+                </label>
+            </fieldset>
+        </li>
+        <li>
+            <fieldset id="ball-settings">
+                <legend>Ball settings</legend>
+                <label for="ball-radius">Ball size:
+                    <select id="ball-radius" name="ball-size">
+                        <option value="10" selected>Small</option>
+                        <option value="20">Medium</option>
+                        <option value="30">Large</option>
+                    </select>
+                </label>
+                <label for="ball-radius">Ball speed:
+                    <select id="ball-speed" name="ball-speed">
+                        <option value="1" selected>Slow</option>
+                        <option value="2">Fast</option>
+                        <option value="3">Very fast</option>
+                    </select>
+                </label>
+                <label for="ball-fill-color">Ball color:
+                    <input id="ball-fill-color" type="color">
+                </label>
+                <label for="ball-stroke-color">Ball outline color:
+                    <input id="ball-stroke-color" type="color">
+                </label>
+            </fieldset>
+        </li>
+        <li>
+            <fieldset id="player-one-settings">
+                <legend>Player 1 settings</legend>
+                <label for="p1-racket-size">Racket size:
+                    <select id="p1-racket-size" name="player1-racket-size">
+                        <option value="10">Small</option>
+                        <option value="20" selected>Medium</option>
+                        <option value="30">Large</option>
+                    </select>
+                </label>
+                <label for="p1-racket-color">Racket color:
+                    <input id="p1-racket-color" type="color">
+                </label>
+                <label for="p1-nickname">Nickname:
+                    <input id="p1-nickname" type="text" placeholder="Player 1 nickname">
+                </label>
+            </fieldset>
+        </li>
+        <li>
+            <fieldset id="player-two-settings">
+                <legend>Player 2 settings</legend>
+                <label for="p2-racket-size">Racket size:
+                    <select id="p2-racket-size" name="player2-racket-size">
+                        <option value="10">Small</option>
+                        <option value="20" selected>Medium</option>
+                        <option value="30">Large</option>
+                    </select>
+                </label>
+                <label for="p2-racket-color">Racket color:
+                    <input id="p2-racket-color" type="color">
+                </label>
+                <label for="p2-nickname">Nickname:
+                    <input id="p2-nickname" type="text" placeholder="Player 2 nickname">
+                </label>
+            </fieldset>
+        </li>
+    </ul>
+</div>
+<div id="gameContainer">
+    <div id="scoreBoardContainer">
+        <svg class="playersAvatar" id="playerOneAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
+        <span class="playersName" id="playerOneName"></span>
+        <canvas id="scoreBoardCanvas"></canvas>
+        <span class="playersName" id="playerTwoName"></span>
+        <svg class="playersAvatar" id="playerTwoAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <canvas id="gameFieldCanvas"></canvas>
+    <button id="startGameButton">Start</button>
+    <button id="pauseResumeGameButton">Pause</button>
+</div>
+<script src="scripts\frameworks\jquery-2.1.1.js"></script>
+<script src="scripts\frameworks\kinetic.js"></script>
+<script src="scripts\utilities.js"></script>
+<script src="scripts\ball.js"></script>
+<script src="scripts\field.js"></script>
+<script src="scripts\fieldObjects.js"></script>
+<script src="scripts\gameEngine.js"></script>
+<script src="scripts\players.js"></script>
+<script src="scripts\score.js"></script>
+<script src="scripts\settings.js"></script>
+
 </body>
 </html>

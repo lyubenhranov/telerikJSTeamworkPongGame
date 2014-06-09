@@ -1,0 +1,41 @@
+body > canvas {
+    border: 1px solid green;
+    margin-top: 15px;
+}
+
+input#settings-btn{
+    display: block;
+}
+div#settings {
+    height: 200px;
+}
+div#settings > ul {
+    padding: 0;
+}
+
+div#settings > ul li {
+    display: inline-block;
+border: 1px solid black;
+    margin: 0;
+}
+
+div#settings > ul li:nth-child(1) {
+    position: relative;
+    bottom: 39px;
+}
+
+div#settings > ul li:nth-child(3), div#settings > ul li:nth-child(4) {
+    position: relative;
+    bottom: 42px;
+}
+
+div#settings > ul li label {
+    display: block;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+div#settings > ul li fieldset {
+    height: 180px;
+    border: none;
+}
