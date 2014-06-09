@@ -1,22 +1,32 @@
-body > canvas {
-    border: 1px solid green;
-    margin-top: 15px;
+input#settings-btn {
+    display: block;
+    color: #1AE000;
+    background-color: #000;
+    border: 1px solid #0010BA;
+    margin-left: 10px;
+    border-radius: 5px 0;
+    outline: none;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
 
-input#settings-btn{
-    display: block;
-}
 div#settings {
     height: 200px;
+    margin-bottom: 10px;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
+
 div#settings > ul {
     padding: 0;
+    margin: 0;
+    color: #1AE000;
 }
 
 div#settings > ul li {
     display: inline-block;
-border: 1px solid black;
-    margin: 0;
+    background-color: #000;
+    border: 2px solid #0010BA;
+    border-radius: 5px;
+    padding-top: 10px;
 }
 
 div#settings > ul li:nth-child(1) {
@@ -38,4 +48,23 @@ div#settings > ul li label {
 div#settings > ul li fieldset {
     height: 180px;
     border: none;
+}
+
+div#settings input[type = color] {
+    border: 1px solid #0010BA;
+    border-radius: 5px;
+    outline: none;
+}
+
+div#settings select {
+    color: #1AE000;
+    background-color: black;
+    border: 1px solid #0010BA;
+    border-radius: 5px;
+    outline: none;
+}
+
+div#settings legend {
+    font-weight: bold;
+    font-size: 1.2em;
 }

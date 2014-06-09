@@ -51,10 +51,12 @@ function updateMenuVisibility() {
     $('#settings-btn').click(function () {
         if (isMenuShown === true) {
             $('div#settings').fadeOut(1000);
+            $('#settings-btn').val('Show Settings');
             isMenuShown = false;
         }
         else {
             $('div#settings').fadeIn(1000);
+            $('#settings-btn').val('Hide Settings');
             isMenuShown = true;
         }
     });
