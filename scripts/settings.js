@@ -1,25 +1,50 @@
-var gameSettings={
-	gameSpeed:5,
-    scoreNotDrawed:true,
-    playerOneName:'Player 1',
-    playerTwoName:'Player 2'
-} 
-
+//Game Menu
+var isMenuShown = true,
+    res,
+    fieldWidth = parseInt($('#resolution').val().split('x')[0]),
+    fieldHeight = parseInt($('#resolution').val().split('x')[1]),
+    fieldColor = '#fff',
+    backgroundColor = '#fff',
+    radius = parseInt($('#ball-radius').val()),
+    ballFillColor = '#000',
+    ballStrokeColor = '#000',
+    ballSpeed = parseInt($('#ball-speed').val()),
+    p1RacketSize = parseInt($('#p1-racket-size').val()),
+    p1RacketColor = '#000',
+    p1Nickname = 'Player 1',
+    p2RacketSize = parseInt($('#p2-racket-size').val()),
+    p2RacketColor = '#000',
+    p2Nickname = 'Player 2',
+    gameSettings = {
+        gameSpeed: 5,
+        scoreNotDrawed: true,
+        playerOneName: 'Player 1',
+        playerTwoName: 'Player 2',
+        fieldWidth: fieldWidth,
+        fieldHeight: fieldHeight,
+        fieldColor: fieldColor,
+        backgroundColor: backgroundColor,
+        ballRadius: radius,
+        ballFillColor: ballFillColor,
+        ballStrokeColor: ballStrokeColor,
+        ballSpeed: ballSpeed,
+        p1RacketSize: p1RacketSize,
+        p1RacketColor: p1RacketColor,
+        p1Nickname: p1Nickname
+    };
 
 function initializeSettings() {
     if (gameSettings.scoreNotDrawed) {
         drawInitialScoreBoard();
-    }    
+    }
 }
 
-//Game Menu
-var isMenuShown = true;
-
-function applySettings() {
-    getFieldSettings();
-    getBallSettings();
-    getPlayerOneSettings();
-    getPlayerTwoSettings();
+function attachSettingsMenuEvents() {
+    handleFieldSettingsEvents();
+    handleBallSettingsEvents();
+    handlePlayerOneSettingsEvents();
+    handlePlayerTwoSettingsEvents();
+    updateMenuVisibility();
 }
 
 function updateMenuVisibility() {
@@ -35,104 +60,60 @@ function updateMenuVisibility() {
     });
 }
 
-function getFieldSettings() {
-    var res,
-        fieldWidth = parseInt($('#resolution').val().split('x')[0]),
-        fieldHeight = parseInt($('#resolution').val().split('x')[1]),
-        fieldColor = '#fff',
-        backgroundColor = '#fff';
-
+function handleFieldSettingsEvents() {
     $('#resolution').change(function () {
         res = $('#resolution').val();
-        fieldWidth = parseInt(res.split('x')[0]);
-        fieldHeight = parseInt(res.split('x')[1]);
+        gameSettings.fieldWidth = parseInt(res.split('x')[0]);
+        gameSettings.fieldHeight = parseInt(res.split('x')[1]);
+        console.log(gameSettings.fieldWidth);
         $('#field').width(fieldWidth).height(fieldHeight);
     });
     $('#field-color').change(function () {
-        fieldColor = $('#field-color').val();
+        gameSettings.fieldColor = $('#field-color').val();
         $('#gameFieldCanvas').css('background', fieldColor);
     });
     $('#background-color').change(function () {
-        backgroundColor = $('#background-color').val();
+        gameSettings.backgroundColor = $('#background-color').val();
         $('body').css('background', backgroundColor);
     });
-
-    return {
-        fieldWidth: fieldWidth,
-        fieldHeight: fieldHeight,
-        fieldColor: fieldColor,
-        backgroundColor: backgroundColor
-    };
 }
 
-function getBallSettings() {
-    var radius = parseInt($('#ball-radius').val()),
-        ballFillColor = '#000',
-        ballStrokeColor = '#000',
-        ballSpeed = parseInt($('#ball-speed').val());
-
+function handleBallSettingsEvents() {
     $('#ball-radius').click(function () {
-        radius = parseInt($('#ball-radius').val());
+        gameSettings.radius = parseInt($('#ball-radius').val());
     });
     $('#ball-fill-color').change(function () {
-        ballFillColor = $('#ball-fill-color').val();
+        gameSettings.ballFillColor = $('#ball-fill-color').val();
 
     });
     $('#ball-stroke-color').change(function () {
-        ballStrokeColor = $('#ball-stroke-color').val();
+        gameSettings.ballStrokeColor = $('#ball-stroke-color').val();
     });
     $('#ball-speed').change(function () {
-        ballSpeed = parseInt($('#ball-speed').val());
+        gameSettings.ballSpeed = parseInt($('#ball-speed').val());
     });
-
-    return {
-        ballRadius: radius,
-        ballFillColor: ballFillColor,
-        ballStrokeColor: ballStrokeColor,
-        ballSpeed: ballSpeed
-    }
 }
 
-function getPlayerOneSettings() {
-    var racketSize = parseInt($('#p1-racket-size').val()),
-        racketColor = '#000',
-        nickname = 'Player 2';
-
+function handlePlayerOneSettingsEvents() {
     $('#p1-racket-size').change(function () {
-        racketSize = parseInt($('#p1-racket-size').val());
+        gameSettings.p1RacketSize = parseInt($('#p1-racket-size').val());
     });
     $('p1-racket-color').change(function () {
-        racketColor = $('p1-racket-color').val();
+        gameSettings.p1RacketColor = $('p1-racket-color').val();
     });
     $('p1-nickname').change(function () {
-        nickname = $('p1-nickname').val();
+        gameSettings.p1Nickname = $('p1-nickname').val();
     });
-
-    return{
-        racketSize: racketSize,
-        racketColor: racketColor,
-        nickname: nickname
-    }
 }
 
-function getPlayerTwoSettings() {
-    var racketSize = parseInt($('#p2-racket-size').val()),
-        racketColor = '#000',
-        nickname = 'Player 2';
-
+function handlePlayerTwoSettingsEvents() {
     $('#p2-racket-size').change(function () {
-        racketSize = parseInt($('#p2-racket-size').val());
+        gameSettings.p2RacketSize = parseInt($('#p2-racket-size').val());
     });
     $('p2-racket-color').change(function () {
-        racketColor = $('p2-racket-color').val();
+        gameSettings.p2RacketColor = $('p2-racket-color').val();
     });
     $('p2-nickname').change(function () {
-        nickname = $('p2-nickname').val();
+        gameSettings.p2Nickname = $('p2-nickname').val();
     });
-
-    return{
-        racketSize: racketSize,
-        racketColor: racketColor,
-        nickname: nickname
-    }
 }
