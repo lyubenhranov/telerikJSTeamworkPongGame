@@ -12,11 +12,11 @@ var theBall = new Ball(10,10,5);
 function startGame() {
     gameTimer = setInterval(playGame, gameSettings.gameSpeed);
     initializeSettings();
-    playGame()
+    playGame();
 }
 
 function playGame() {
-    clearGameField()
+    clearGameField();
     applyRandomBonus();
 	theBall.draw(gameFieldCanvas);
 	theBall.update(gameFieldCanvas);
@@ -42,6 +42,6 @@ function pauseResumeGame() {
 //Game Menu
 $(document).ready(function () {
 
-    attachSettingsMenuEvents()
+    attachSettingsMenuEvents();
 
 });

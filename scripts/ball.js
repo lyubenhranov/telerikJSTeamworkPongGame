@@ -35,12 +35,14 @@ function Ball(x,y,r){
 			this.vY *= -1;
 		}
 		//TODO:collide with rackets
-	}
+	};
 	
 	this.draw = function(canvas){
-		canvas.beginPath();
-		canvas.arc(this.x, this.y, this.r, degreesToRadians(0), degreesToRadians(360));
-		canvas.closePath();
-		canvas.fill();
-	}
+		canvas.fillStyle = gameSettings.ballFillColor;
+        canvas.strokeStyle = gameSettings.ballStrokeColor;
+        canvas.beginPath();
+        canvas.arc(this.x, this.y, this.r, degreesToRadians(0), degreesToRadians(360));
+        canvas.closePath();
+        canvas.fill();
+	};
 }
