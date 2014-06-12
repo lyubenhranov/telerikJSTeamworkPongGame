@@ -62,8 +62,8 @@ function drawInitialScoreBoard() {
 
     resetAvatarFacesToNormal();
 
-    playerOneNameHTMLElement.innerText = gameSettings.playerOneName;
-    playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName;
+    playerOneNameHTMLElement.innerText = gameSettings.playerOneName || 'Player 1';
+    playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName || 'Player 2';
 }
 
 function drawSadAvatar(player) {
