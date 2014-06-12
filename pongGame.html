@@ -1,16 +1,34 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
     <meta charset="utf-8"/>
     <title>Pong Game</title>
     <link rel="stylesheet" href="styles\layout.css"/>
+    <link rel="stylesheet" href="styles\buttonStyles.css"/>
     <link rel="stylesheet" href="styles\scoreBoard.css"/>
     <link rel="stylesheet" href="styles\gameField.css"/>
     <link href="styles/menuStyles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<input id="settings-btn" type="button" value="Hide Settings">
+<img src = "images/titleLogo.png" id="gameLogoContainerLeft">
+<img src = "images/titleLogo.png" id="gameLogoContainerRight">
+<div id="gameContainer">
+    <div id="scoreBoardContainer">
+        <svg class="playersAvatar" id="playerOneAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
+        <span class="playersName" id="playerOneName"></span>
+        <canvas id="scoreBoardCanvas"></canvas>
+        <span class="playersName" id="playerTwoName"></span>
+        <svg class="playersAvatar" id="playerTwoAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <canvas id="gameFieldCanvas"></canvas>
+    <div id="buttonContainer">
+        <button id="startGameButton">Start</button>
+        <button id="pauseResumeGameButton">Pause</button>
+    </div>
+</div>
+<input id="settings-btn" type="button" value="Show Settings">
 <div id="settings">
     <ul>
         <li>
@@ -93,18 +111,6 @@
             </fieldset>
         </li>
     </ul>
-</div>
-<div id="gameContainer">
-    <div id="scoreBoardContainer">
-        <svg class="playersAvatar" id="playerOneAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
-        <span class="playersName" id="playerOneName"></span>
-        <canvas id="scoreBoardCanvas"></canvas>
-        <span class="playersName" id="playerTwoName"></span>
-        <svg class="playersAvatar" id="playerTwoAvatar" xmlns="http://www.w3.org/2000/svg"></svg>
-    </div>
-    <canvas id="gameFieldCanvas"></canvas>
-    <button id="startGameButton">Start</button>
-    <button id="pauseResumeGameButton">Pause</button>
 </div>
 <script src="scripts\frameworks\jquery-2.1.1.js"></script>
 <script src="scripts\settings.js"></script>

@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: black;
 
     font-family: Calibri, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
 }
@@ -14,5 +15,25 @@ div {
     font-style: italic;
 }
 
+img#gameLogoContainerLeft {
+	position: absolute;
+
+	-ms-transform: rotate(315deg); /* IE 9 */
+    -webkit-transform: rotate(315deg); /* Chrome, Safari, Opera */
+    transform: rotate(315deg);
+
+    top: 100px;
+}
+
+img#gameLogoContainerRight {
+	position: absolute;
+	left: 930px;
+
+	-ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+
+    top: 100px;
+}
 
 

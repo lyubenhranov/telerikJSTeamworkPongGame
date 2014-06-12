@@ -1,42 +1,44 @@
 input#settings-btn {
     display: block;
-    color: #1AE000;
+    color: #FFFFFF;
     background-color: #000;
-    border: 1px solid #0010BA;
-    margin-left: 10px;
-    border-radius: 5px 0;
+    border: 1px dotted #1AE000;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
     outline: none;
-    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+    font-family: 'Chewy', cursive;
+    font-size: 18px;
+}
+
+input#settings-btn:hover {
+    color: #1AE000;
 }
 
 div#settings {
+    display: none;
     height: 200px;
-    margin-bottom: 10px;
-    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+    margin: 10px;
+    font-family: 'Chewy', cursive;
+    font-size: 15px;
+    text-align: center;
 }
 
 div#settings > ul {
+    display: inline-block;
     padding: 0;
     margin: 0;
-    color: #1AE000;
+    color: white;
 }
 
 div#settings > ul li {
     display: inline-block;
+    float: left;
     background-color: #000;
-    border: 2px solid #0010BA;
+    border: 1px dotted #1AE000;
     border-radius: 5px;
     padding-top: 10px;
-}
-
-div#settings > ul li:nth-child(1) {
-    position: relative;
-    bottom: 39px;
-}
-
-div#settings > ul li:nth-child(3), div#settings > ul li:nth-child(4) {
-    position: relative;
-    bottom: 42px;
+    text-align: left;
 }
 
 div#settings > ul li label {
@@ -51,15 +53,15 @@ div#settings > ul li fieldset {
 }
 
 div#settings input[type = color] {
-    border: 1px solid #0010BA;
+    border: 1px solid #1AE000;
     border-radius: 5px;
     outline: none;
 }
 
 div#settings input[type = text] {
-    border-radius: 5px 0;
-    background-color: black;
-    border: 1px solid #0010BA;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #1AE000;
     color: #1AE000;
     padding-left: 5px;
     width: 120px;
@@ -67,14 +69,13 @@ div#settings input[type = text] {
 }
 
 div#settings select {
-    color: #1AE000;
-    background-color: black;
-    border: 1px solid #0010BA;
-    border-radius: 5px 0;
+    color: #white;
+    background-color: white;
+    border: 1px solid #1AE000;
+    border-radius: 5px;
     outline: none;
 }
 
 div#settings legend {
-    font-weight: bold;
     font-size: 1.2em;
 }
