@@ -24,8 +24,7 @@ spriteImage.src = 'images/numbersSprite.png';
 function goalScored(player) {
     if (player === 'playerOne') {
         playerOneScore++;
-    }
-    else {
+    } else {
         playerTwoScore++;
     }
 
@@ -42,8 +41,7 @@ function updateScoreBoard(player) {
 
         drawHappyAvatar(player);
         drawSadAvatar('playerTwo');
-    }
-    else {
+    } else {
         score = playerTwoScore;
         spritePositionX = 55;
 
@@ -73,11 +71,10 @@ function drawSadAvatar(player) {
         sadFace = '<circle id="playerOneHead" r="20" cy="25" cx="25" stroke-width="2" stroke="#000000" fill="#ffff00" /><circle id="playerOneRightEye" r="3" cy="20" cx="32" stroke-width="2" stroke="#000000" fill="#000000" /><circle id="playerOneLeftEye" r="3" cy="20" cx="20" stroke-width="2" stroke="#000000" fill="#000000" /><path id="playerOneMouth" d="M15 35 Q25 30 36 35" stroke-width="2" stroke="#000000" />';
 
     if (player === 'playerOne') {
-        playerOneAvatarSVG.innerHTML = sadFace; 
-    }
-    else {
+        playerOneAvatarSVG.innerHTML = sadFace;
+    } else {
         playerTwoAvatarSVG.innerHTML = sadFace;
-    }    
+    }
 }
 
 function drawHappyAvatar(player) {
@@ -86,8 +83,7 @@ function drawHappyAvatar(player) {
 
     if (player === 'playerOne') {
         playerOneAvatarSVG.innerHTML = happyFace;
-    }
-    else {
+    } else {
         playerTwoAvatarSVG.innerHTML = happyFace;
     }
 }
@@ -98,8 +94,7 @@ function drawNormalAvatar(player) {
 
     if (player === 'playerOne') {
         playerOneAvatarSVG.innerHTML = normalFace;
-    }
-    else {
+    } else {
         playerTwoAvatarSVG.innerHTML = normalFace;
     }
 }

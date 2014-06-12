@@ -11,15 +11,15 @@ var isMenuShown = true,
     ballSpeed = parseInt($('#ball-speed').val()),
     p1RacketSize = parseInt($('#p1-racket-size').val()),
     p1RacketColor = '#000',
-    p1Nickname = 'Player 1',
+    p1Nickname = $('#p1-nickname').val(),
     p2RacketSize = parseInt($('#p2-racket-size').val()),
     p2RacketColor = '#000',
-    p2Nickname = 'Player 2',
+    p2Nickname = $('#p2-nickname').val(),
     gameSettings = {
         gameSpeed: 5,
         scoreNotDrawed: true,
-        playerOneName: 'Player 1',
-        playerTwoName: 'Player 2',
+        playerOneName: p1Nickname,
+        playerTwoName: p2Nickname,
         fieldWidth: fieldWidth,
         fieldHeight: fieldHeight,
         fieldColor: fieldColor,
@@ -48,13 +48,12 @@ function attachSettingsMenuEvents() {
 }
 
 function updateMenuVisibility() {
-    $('#settings-btn').click(function () {
+    $('#settings-btn').click(function() {
         if (isMenuShown === true) {
             $('div#settings').fadeOut(1000);
             $('#settings-btn').val('Show Settings');
             isMenuShown = false;
-        }
-        else {
+        } else {
             $('div#settings').fadeIn(1000);
             $('#settings-btn').val('Hide Settings');
             isMenuShown = true;
@@ -63,59 +62,59 @@ function updateMenuVisibility() {
 }
 
 function handleFieldSettingsEvents() {
-    $('#resolution').change(function () {
+    $('#resolution').change(function() {
         res = $('#resolution').val();
         gameSettings.fieldWidth = parseInt(res.split('x')[0]);
         gameSettings.fieldHeight = parseInt(res.split('x')[1]);
         console.log(gameSettings.fieldWidth);
         $('#field').width(fieldWidth).height(fieldHeight);
     });
-    $('#field-color').change(function () {
+    $('#field-color').change(function() {
         gameSettings.fieldColor = $('#field-color').val();
         $('#gameFieldCanvas').css('background', fieldColor);
     });
-    $('#background-color').change(function () {
+    $('#background-color').change(function() {
         gameSettings.backgroundColor = $('#background-color').val();
         $('body').css('background', backgroundColor);
     });
 }
 
 function handleBallSettingsEvents() {
-    $('#ball-radius').click(function () {
+    $('#ball-radius').click(function() {
         gameSettings.radius = parseInt($('#ball-radius').val());
     });
-    $('#ball-fill-color').change(function () {
+    $('#ball-fill-color').change(function() {
         gameSettings.ballFillColor = $('#ball-fill-color').val();
 
     });
-    $('#ball-stroke-color').change(function () {
+    $('#ball-stroke-color').change(function() {
         gameSettings.ballStrokeColor = $('#ball-stroke-color').val();
     });
-    $('#ball-speed').change(function () {
+    $('#ball-speed').change(function() {
         gameSettings.ballSpeed = parseInt($('#ball-speed').val());
     });
 }
 
 function handlePlayerOneSettingsEvents() {
-    $('#p1-racket-size').change(function () {
+    $('#p1-racket-size').change(function() {
         gameSettings.p1RacketSize = parseInt($('#p1-racket-size').val());
     });
-    $('p1-racket-color').change(function () {
+    $('#p1-racket-color').change(function() {
         gameSettings.p1RacketColor = $('p1-racket-color').val();
     });
-    $('p1-nickname').change(function () {
-        gameSettings.p1Nickname = $('p1-nickname').val();
+    $('#p1-nickname').change(function() {
+        gameSettings.playerOneName = $('#p1-nickname').val();
     });
 }
 
 function handlePlayerTwoSettingsEvents() {
-    $('#p2-racket-size').change(function () {
+    $('#p2-racket-size').change(function() {
         gameSettings.p2RacketSize = parseInt($('#p2-racket-size').val());
     });
-    $('p2-racket-color').change(function () {
-        gameSettings.p2RacketColor = $('p2-racket-color').val();
+    $('#p2-racket-color').change(function() {
+        gameSettings.p2RacketColor = $('#p2-racket-color').val();
     });
-    $('p2-nickname').change(function () {
-        gameSettings.p2Nickname = $('p2-nickname').val();
+    $('#p2-nickname').change(function() {
+        gameSettings.playerTwoName = $('#p2-nickname').val();
     });
 }
