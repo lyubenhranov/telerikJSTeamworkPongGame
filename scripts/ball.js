@@ -12,20 +12,20 @@ function Ball(x,y,r){
 		this.y +=this.vY;
 		//collide with walls
 		if(this.x - this.r <= 0){
-			goalScored('playerTwo');
-			this.x = canvas.canvas.width / 2;
-			this.y = canvas.canvas.height / 2;
-			//TODO: wait for player input
-			this.vX = 1;
-			this.vY = getRandomNumberWithinRange(-2,2);
+			//TODO:player 1 goal
+			//TODO:restart
+			//temporary code BEGIN
+			this.x = 0 + this.r;
+			this.vX *= -1;
+			//temporary code END
 		}
 		if(this.x + this.r >= canvas.canvas.width){
-			goalScored('playerOne');
-			this.x = canvas.canvas.width / 2;
-			this.y = canvas.canvas.height / 2;
-			//TODO: wait for player input
-			this.vX = -1;
-			this.vY = getRandomNumberWithinRange(-2,2);
+			//TODO:player 2 goal
+			//TODO:restart
+			//temporary code BEGIN
+			this.x = canvas.canvas.width - this.r;
+			this.vX *= -1;
+			//temporary code END
 		}
 		if(this.y - this.r <= 0){
 			this.y = 0 + this.r;
