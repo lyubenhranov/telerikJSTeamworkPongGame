@@ -7,6 +7,8 @@ var gameTimer,
 startGameButton.addEventListener('click', startGame, false);
 pauseResumeGameButton.addEventListener('click', pauseResumeGame, false);
 
+var theBall = new Ball(10,10,5);
+
 function startGame() {
     gameTimer = setInterval(playGame, gameSettings.gameSpeed);
     initializeSettings();
@@ -16,8 +18,10 @@ function startGame() {
 function playGame() {
     clearGameField()
     applyRandomBonus();
-    drawBall();
-    moveBall();
+	theBall.draw(gameFieldCanvas);
+	theBall.update(gameFieldCanvas);
+    //drawBall();
+    //moveBall();
 }
 
 function clearGameField() {

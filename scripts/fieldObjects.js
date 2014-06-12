@@ -11,10 +11,14 @@ var bonusTypes = [{
 		y: undefined
 	},
 	applyEffect: function() {
-		ball.ballSpeed += 2;
+		//ball.ballSpeed += 2;
+		theBall.vX *= 2;
+		theBall.vY *= 2;
 	},
 	revertEffect: function() {
-		ball.ballSpeed -= 2;
+		//ball.ballSpeed -= 2;
+		theBall.vX = theBall.vX/2;
+		theBall.vY = theBall.vX/2;
 	}
 }];
 
@@ -60,7 +64,7 @@ function drawBonus(bonus) {
 }
 
 function handleCollision(bonus) {
-	if (ball.positionX >= bonus.coords.x - 15 && ball.positionX <= bonus.coords.x + 15 && ball.positionY >= bonus.coords.y - 15 && ball.positionY <= bonus.coords.y + 15) {
+	if (theBall.x >= bonus.coords.x - 15 && theBall.y <= bonus.coords.x + 15 && theBall.y >= bonus.coords.y - 15 && theBall.y <= bonus.coords.y + 15) {
 		isBonusPresent = false;
 		isBonusInEffect = true;
 		bonus.applyEffect();
