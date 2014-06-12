@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function Ball(x,y,r){
 	this.x = x;
 	this.y = y;
@@ -45,6 +46,57 @@ function Ball(x,y,r){
 	}
 	
 	
+=======
+function Ball(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.vX = 1;
+    this.vY = 1;
+
+    this.update = function(canvas) {
+        //move
+        this.x += this.vX;
+        this.y += this.vY;
+        //collide with walls
+        if (this.x - this.r <= 0) {
+            goalScored('playerOne');
+            //TODO:restart
+            //temporary code BEGIN
+            this.x = 0 + this.r;
+            this.vX *= -1;
+            //temporary code END
+        }
+        if (this.x + this.r >= canvas.canvas.width) {
+            goalScored('playerTwo');
+            //TODO:restart
+            //temporary code BEGIN
+            this.x = canvas.canvas.width - this.r;
+            this.vX *= -1;
+            //temporary code END
+        }
+        if (this.y - this.r <= 0) {
+            this.y = 0 + this.r;
+            this.vY *= -1;
+        }
+        if (this.y + this.r >= canvas.canvas.height) {
+            this.y = canvas.canvas.height - this.r;
+            this.vY *= -1;
+        }
+        //TODO:collide with rackets
+    }
+
+    this.draw = function(canvas) {
+        canvas.fillStyle = gameSettings.ballFillColor;
+        canvas.strokeStyle = gameSettings.ballStrokeColor;
+        canvas.beginPath();
+        canvas.arc(this.x, this.y, this.r, degreesToRadians(0), degreesToRadians(360));
+        canvas.closePath();
+        canvas.fill();
+    }
+
+
+>>>>>>> origin/master
 }
 
 /*
