@@ -1,5 +1,6 @@
 #scoreBoardContainer {
-    display: table-row;
+    display: table;
+    margin: 0 auto;
 }
 
 svg.playersAvatar {
@@ -10,5 +11,9 @@ svg.playersAvatar {
 span.playersName {
     display: table-cell;
     vertical-align: middle;
+    padding: 0 10px;
+    font-family: 'Chewy', cursive;
+    font-size: 20px;
+    color: white;
 }
 
