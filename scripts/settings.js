@@ -1,5 +1,5 @@
 //Game Menu
-var isMenuShown = true,
+var isMenuShown = false,
     res,
     fieldWidth = parseInt($('#resolution').val().split('x')[0]),
     fieldHeight = parseInt($('#resolution').val().split('x')[1]),
