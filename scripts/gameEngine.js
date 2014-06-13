@@ -27,7 +27,7 @@ function startGame() {
     };
 
     isGameStarted = true;
-    gameTimer = setInterval(playGame, gameSettings.gameSpeed);
+    gameTimer = setInterval(playGame, gameSettings.ballSpeed);
     playGame();
 }
 
