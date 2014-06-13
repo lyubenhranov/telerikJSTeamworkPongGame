@@ -5,29 +5,26 @@ var timeElapsed = 0;
 var currentBonus = undefined;
 var bonusTypes = [{
 	name: 'slow',
-	duration: 4,
+	duration: 3,
 	coords: {
 		x: undefined,
 		y: undefined
 	},
 	applyEffect: function() {
 		//ball.ballSpeed += 2;
-		theBall.vX *= 2;
-		theBall.vY *= 2;
+		theBall.speedMultiplier = 0.5;
 	},
 	revertEffect: function() {
 		//ball.ballSpeed -= 2;
-		theBall.vX = theBall.vX/2;
-		theBall.vY = theBall.vX/2;
+		theBall.speedMultiplier = 1;
 	}
 }];
 
 function applyRandomBonus() {
 	if (!isBonusPresent && !isBonusInEffect) {
-		var bonus = getRandomBonus();
+		currentBonus = getRandomBonus();
 
 		isBonusPresent = true;
-		currentBonus = bonus;
 	}
 	if (isBonusInEffect) {
 		timeElapsed = (new Date()).getTime() / 1000 - timeStart;
@@ -35,6 +32,7 @@ function applyRandomBonus() {
 			isBonusInEffect = false;
 			isBonusPresent = false;
 			currentBonus.revertEffect();
+			currentBonus=null;
 		}
 	}
 	if (!isBonusInEffect) {
@@ -54,17 +52,18 @@ function getRandomBonus() {
 
 function drawBonus(bonus) {
 	handleCollision(bonus);
-	if (!isBonusInEffect) {
+	if (!isBonusInEffect && currentBonus!==null) {
+		var fill=gameFieldCanvas.fillStyle;
 		gameFieldCanvas.fillStyle = 'yellowgreen';
-		gameFieldCanvas.arc(bonus.coords.x, bonus.coords.y, 3, degreesToRadians(0), degreesToRadians(360));
+		gameFieldCanvas.arc(currentBonus.coords.x, currentBonus.coords.y, 3, degreesToRadians(0), degreesToRadians(360));
 		gameFieldCanvas.fill();
-		gameFieldCanvas.fillStyle = 'black';
+		gameFieldCanvas.fillStyle = fill;
 	}
 
 }
 
 function handleCollision(bonus) {
-	if (theBall.x >= bonus.coords.x - 15 && theBall.y <= bonus.coords.x + 15 && theBall.y >= bonus.coords.y - 15 && theBall.y <= bonus.coords.y + 15) {
+	if (currentBonus!==null && theBall.x >= currentBonus.coords.x - 15 && theBall.x <= currentBonus.coords.x + 15 && theBall.y >= currentBonus.coords.y - 15 && theBall.y <= currentBonus.coords.y + 15) {
 		isBonusPresent = false;
 		isBonusInEffect = true;
 		bonus.applyEffect();

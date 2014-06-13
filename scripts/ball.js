@@ -4,11 +4,12 @@ function Ball(x,y,r){
 	this.r = r;
 	this.vX = 1;
 	this.vY = 1;
+	this.speedMultiplier=1;
 	
 	this.update = function(canvas){
 		//move
-		this.x +=this.vX;
-		this.y +=this.vY;
+		this.x +=this.vX*this.speedMultiplier;
+		this.y +=this.vY*this.speedMultiplier;
 		//collide with walls
 		if(this.x - this.r <= 0){
 			goalScored('playerTwo');
