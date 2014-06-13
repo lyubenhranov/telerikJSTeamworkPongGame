@@ -6,6 +6,13 @@ body {
     font-family: Calibri, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
 }
 
+@font-face {
+  font-family: 'Chewy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Chewy'), url('../cheweyFont.woff') format('woff');
+}
+
 div {
     padding: 0 10px;
 }
