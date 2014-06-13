@@ -18,6 +18,8 @@ document.addEventListener('keydown', function(event) {
 }, false);
 
 var theBall = new Ball(10, 10, 5);
+var p1Racket = new Racket(0, gameFieldCanvas.canvas.height / 2 - gameSettings.p1RacketSize / 2, gameSettings.racketWidth, gameSettings.p1RacketSize, gameSettings.p1RacketFillColor, gameSettings.p1RacketStrokeColor);
+var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth, gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth, gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, gameSettings.p2RacketStrokeColor);
 
 function startGame() {
     if (!isGameStarted) {
@@ -35,6 +37,8 @@ function playGame() {
     applyRandomBonus();
     theBall.draw(gameFieldCanvas);
     theBall.update(gameFieldCanvas);
+	p1Racket.draw(gameFieldCanvas);
+	p2Racket.draw(gameFieldCanvas);
     //drawBall();
     //moveBall();
 }

@@ -9,11 +9,14 @@ var isMenuShown = false,
     ballFillColor = '#FFF',
     ballStrokeColor = '#FFF',
     ballSpeed = parseInt($('#ball-speed').val()),
-    p1RacketSize = parseInt($('#p1-racket-size').val()),
-    p1RacketColor = '#000',
+	racketWidth = 5,
+    p1RacketSize = 30, //parseInt($('#p1-racket-size').val()),
+    p1RacketFillColor = '#F00',
+    p1RacketStrokeColor = '#0FF',
     p1Nickname = $('#p1-nickname').val(),
-    p2RacketSize = parseInt($('#p2-racket-size').val()),
-    p2RacketColor = '#000',
+    p2RacketSize = 30, //parseInt($('#p2-racket-size').val()),
+    p2RacketFillColor = '#F00',
+    p2RacketStrokeColor = '#0FF',
     p2Nickname = $('#p2-nickname').val(),
     gameSettings = {
         gameSpeed: 5,
@@ -28,9 +31,15 @@ var isMenuShown = false,
         ballFillColor: ballFillColor,
         ballStrokeColor: ballStrokeColor,
         ballSpeed: ballSpeed,
+		racketWidth: racketWidth,
         p1RacketSize: p1RacketSize,
-        p1RacketColor: p1RacketColor,
+        p1RacketFillColor: p1RacketFillColor,
+        p1RacketStrokeColor: p1RacketStrokeColor,
         p1Nickname: p1Nickname,
+        p2RacketSize: p2RacketSize,
+        p2RacketFillColor: p2RacketFillColor,
+        p2RacketStrokeColor: p2RacketStrokeColor,
+        p2Nickname: p2Nickname,
         goalsToWin: 6
     };
 
@@ -55,7 +64,7 @@ function initializeSettings() {
     gameSettings.ballStrokeColor = ballStrokeColor;
     gameSettings.ballSpeed = ballSpeed;
     gameSettings.p1RacketSize = p1RacketSize;
-    gameSettings.p1RacketColor = p1RacketColor;
+    gameSettings.p1RacketFillColor = p1RacketFillColor;
     gameSettings.p1Nickname = p1Nickname;
     gameSettings.goalsToWin = 6;
 
@@ -132,7 +141,7 @@ function handlePlayerOneSettingsEvents() {
         gameSettings.p1RacketSize = parseInt($('#p1-racket-size').val());
     });
     $('#p1-racket-color').change(function() {
-        gameSettings.p1RacketColor = $('p1-racket-color').val();
+        gameSettings.p1RacketFillColor = $('p1-racket-color').val();
     });
     $('#p1-nickname').change(function() {
         gameSettings.playerOneName = $('#p1-nickname').val();
@@ -145,7 +154,7 @@ function handlePlayerTwoSettingsEvents() {
         gameSettings.p2RacketSize = parseInt($('#p2-racket-size').val());
     });
     $('#p2-racket-color').change(function() {
-        gameSettings.p2RacketColor = $('#p2-racket-color').val();
+        gameSettings.p2RacketFillColor = $('#p2-racket-color').val();
     });
     $('#p2-nickname').change(function() {
         gameSettings.playerTwoName = $('#p2-nickname').val();
