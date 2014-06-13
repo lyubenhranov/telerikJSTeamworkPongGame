@@ -47,18 +47,27 @@ var bonusTypes = [{
 	}
 }, {
 	name: 'changePath',
-	duration: 3,
+	duration: 4,
 	timeOfLastApply: 10,
 	coords: {
 		x: undefined,
 		y: undefined
 	},
 	applyEffect: function() {
-		
-			theBall.x += getRandomValueInRange(1, -1);
-			theBall.y += getRandomValueInRange(2, -2);
-			theBall.speedMultiplier = 0.6;
-			timeOfLastApply = (new Date()).getTime() / 1000 - timeStart;
+
+		if (theBall.vX > 0) {
+			theBall.x += getRandomValueInRange(-3, 1);
+		} else {
+			theBall.x += getRandomValueInRange(3, -1);
+		}
+
+		if (theBall.vY > 0) {
+			theBall.y += getRandomValueInRange(-3, 1);
+		} else {
+			theBall.y += getRandomValueInRange(3, -1);
+		}
+		theBall.speedMultiplier = 0.6;
+		timeOfLastApply = (new Date()).getTime() / 1000 - timeStart;
 
 
 	},
@@ -68,6 +77,28 @@ var bonusTypes = [{
 	draw: function() {
 		var fill = gameFieldCanvas.fillStyle;
 		gameFieldCanvas.fillStyle = 'white';
+		gameFieldCanvas.arc(currentBonus.coords.x, currentBonus.coords.y, 3, degreesToRadians(0), degreesToRadians(360));
+		gameFieldCanvas.fill();
+		gameFieldCanvas.fillStyle = fill;
+	}
+}, {
+	name: 'enlargeBall',
+	duration: 5,
+	coords: {
+		x: undefined,
+		y: undefined
+	},
+	applyEffect: function() {
+		//ball.ballSpeed += 2;
+		theBall.r += 5;
+	},
+	revertEffect: function() {
+		//ball.ballSpeed -= 2;
+		theBall.r -= 5;
+	},
+	draw: function() {
+		var fill = gameFieldCanvas.fillStyle;
+		gameFieldCanvas.fillStyle = 'pink';
 		gameFieldCanvas.arc(currentBonus.coords.x, currentBonus.coords.y, 3, degreesToRadians(0), degreesToRadians(360));
 		gameFieldCanvas.fill();
 		gameFieldCanvas.fillStyle = fill;
@@ -87,7 +118,7 @@ function applyRandomBonus() {
 			isBonusPresent = false;
 			currentBonus.revertEffect();
 			currentBonus = null;
-		}else if (currentBonus.name === 'changePath' && isBonusInEffect) {
+		} else if (currentBonus.name === 'changePath' && isBonusInEffect) {
 			currentBonus.applyEffect();
 		}
 	}
@@ -99,7 +130,7 @@ function applyRandomBonus() {
 }
 
 function getRandomBonus() {
-	var bonusindex = getRandomValueInRange(bonusTypes.length-1, 0);
+	var bonusindex = getRandomValueInRange(bonusTypes.length - 1, 0);
 	var bonus = bonusTypes[bonusindex];
 	bonus.coords.x = getRandomValueInRange(canvasElement.width - 15, 10);
 	bonus.coords.y = getRandomValueInRange(canvasElement.height - 15, 10);
