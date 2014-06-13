@@ -33,19 +33,29 @@ function Ball(x, y, r) {
             this.y = canvas.canvas.height - this.r;
             this.vY *= -1;
         }
-        //TODO:collide with rackets
+        this.handleRacketCollision();
+        
+    };
+
+    this.handleRacketCollision=function(){
+//TODO:collide with rackets
         //RacketOneCollision
-        if ((this.x - this.r == (p1Racket.topLeft_x + p1Racket.size_x)) &&
-            (this.y + this.r >= p1Racket.topLeft_y && this.y + this.r <= p1Racket.topLeft_y + p1Racket.size_y)) {
+        if ((this.x - this.r <= (p1Racket.topLeft_x + p1Racket.size_x)) &&
+            (this.y + this.r >= p1Racket.topLeft_y && this.y - this.r <= p1Racket.topLeft_y + p1Racket.size_y)) {
             this.vX = 1;
+
+        return 1;
         };
 
         //RacketTwoCollision
-        if ((this.x + this.r == p2Racket.topLeft_x) &&
-            (this.y + this.r >= p2Racket.topLeft_y && this.y + this.r <= p2Racket.topLeft_y + p2Racket.size_y)) {
+        if ((this.x + this.r >= p2Racket.topLeft_x) &&
+            (this.y + this.r >= p2Racket.topLeft_y && this.y - this.r <= p2Racket.topLeft_y + p2Racket.size_y)) {
             this.vX = -1;
+        return -1;
         };
-    };
+
+        return 0;
+    }
 
     this.draw = function(canvas) {
         canvas.fillStyle = gameSettings.ballFillColor;
