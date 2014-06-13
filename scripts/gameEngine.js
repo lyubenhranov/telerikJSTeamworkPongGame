@@ -20,16 +20,24 @@ document.addEventListener('keydown', function(event) {
         pauseResumeGame();
     } else if (event.keyCode == 38) {
         //Up arrow key pressed
-        p1Racket.topLeft_y -= 15;
+        if (p1Racket.topLeft_y - 15 >= 0) {
+            p1Racket.topLeft_y -= 15;
+        };
     } else if (event.keyCode == 40) {
         //Down arrow key pressed
-        p1Racket.topLeft_y += 15;
+        if (p1Racket.topLeft_y + p1Racket.size_y + 15 <= gameFieldCanvas.canvas.height) {
+            p1Racket.topLeft_y += 15;
+        };
     } else if (event.keyCode == 87) {
         //W key pressed
-        p2Racket.topLeft_y -= 15;
+        if (p2Racket.topLeft_y - 15 >= 0) {
+            p2Racket.topLeft_y -= 15;
+        };
     } else if (event.keyCode == 83) {
         //S key pressed
-        p2Racket.topLeft_y += 15;
+        if (p2Racket.topLeft_y + p2Racket.size_y + 15 <= gameFieldCanvas.canvas.height) {
+            p2Racket.topLeft_y += 15;
+        };
     };
 }, false);
 
