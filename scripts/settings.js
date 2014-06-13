@@ -40,7 +40,8 @@ var isMenuShown = false,
         p2RacketFillColor: p2RacketFillColor,
         p2RacketStrokeColor: p2RacketStrokeColor,
         p2Nickname: p2Nickname,
-        goalsToWin: 6
+        goalsToWin: 6,
+        isGamePaused:false
     };
 
 function initializeSettings() {
@@ -77,7 +78,7 @@ function initializeSettings() {
     timeElapsed = 0;
     currentBonus = undefined;
 
-    isGamePaused = false;
+    gameSettings.isGamePaused = false;
     isGameStarted = false;
 }
 
