@@ -2,7 +2,6 @@ var gameTimer,
     startGameButton = document.getElementById('startGameButton'),
     pauseResumeGameButton = document.getElementById('pauseResumeGameButton'),
     canvasElement = document.getElementById('gameFieldCanvas'),
-    isGamePaused = false,
     isGameStarted = false,
     gameFieldCanvas = canvasElement.getContext('2d');
 
@@ -45,12 +44,12 @@ function clearGameField() {
 
 function pauseResumeGame() {
     if (isGameStarted) {
-        if (!isGamePaused) {
+        if (!gameSettings.isGamePaused) {
             clearInterval(gameTimer);
-            isGamePaused = true;
+            gameSettings.isGamePaused = true;
         } else {
             startGame();
-            isGamePaused = false;
+            gameSettings.isGamePaused = false;
         }
     };
 }

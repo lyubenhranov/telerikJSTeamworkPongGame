@@ -2,10 +2,11 @@ var isBonusPresent = false;
 var isBonusInEffect = false;
 var timeStart = undefined;
 var timeElapsed = 0;
+var wasPaused = false;
 var currentBonus = undefined;
 var bonusTypes = [{
-	name: 'slow',
-	duration: 3,
+	name: 'Slower Ball',
+	duration: 5,
 	coords: {
 		x: undefined,
 		y: undefined
@@ -26,8 +27,8 @@ var bonusTypes = [{
 		gameFieldCanvas.fillStyle = fill;
 	}
 }, {
-	name: 'fast',
-	duration: 3,
+	name: 'Faster Ball',
+	duration: 5,
 	coords: {
 		x: undefined,
 		y: undefined
@@ -46,8 +47,8 @@ var bonusTypes = [{
 		gameFieldCanvas.fillStyle = fill;
 	}
 }, {
-	name: 'changePath',
-	duration: 4,
+	name: 'Vibrating Ball',
+	duration: 5,
 	timeOfLastApply: 10,
 	coords: {
 		x: undefined,
@@ -82,7 +83,7 @@ var bonusTypes = [{
 		gameFieldCanvas.fillStyle = fill;
 	}
 }, {
-	name: 'enlargeBall',
+	name: 'Enlarge Ball',
 	duration: 5,
 	coords: {
 		x: undefined,
@@ -106,19 +107,24 @@ var bonusTypes = [{
 }];
 
 function applyRandomBonus() {
+	if (gameSettings.isGamePaused) {
+		wasPaused = true;
+	}
 	if (!isBonusPresent && !isBonusInEffect) {
 		currentBonus = getRandomBonus();
 
 		isBonusPresent = true;
 	}
 	if (isBonusInEffect) {
-		timeElapsed = (new Date()).getTime() / 1000 - timeStart;
+		drawNotificationOnCanvas('Bonus in effect: ' + currentBonus.name + '! Time Left: ' + Math.floor(currentBonus.duration - timeElapsed), 15, 15);
+		timeElapsed += gameSettings.gameSpeed / 1000;
 		if (timeElapsed >= currentBonus.duration) {
 			isBonusInEffect = false;
 			isBonusPresent = false;
 			currentBonus.revertEffect();
 			currentBonus = null;
-		} else if (currentBonus.name === 'changePath' && isBonusInEffect) {
+			timeElapsed = 0;
+		} else if (currentBonus.name === 'Vibrating Ball' && isBonusInEffect) {
 			currentBonus.applyEffect();
 		}
 	}
@@ -149,7 +155,7 @@ function handleCollision(bonus) {
 	if (currentBonus !== null && theBall.x >= currentBonus.coords.x - 15 && theBall.x <= currentBonus.coords.x + 15 && theBall.y >= currentBonus.coords.y - 15 && theBall.y <= currentBonus.coords.y + 15) {
 		isBonusPresent = false;
 		isBonusInEffect = true;
-		currentBonus.applyEffect()
+		currentBonus.applyEffect();
 		timeStart = new Date().getTime() / 1000;
 	}
 }
