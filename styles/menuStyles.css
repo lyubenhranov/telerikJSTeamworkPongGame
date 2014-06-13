@@ -62,7 +62,7 @@ div#settings input[type = text] {
     border-radius: 5px;
     background-color: white;
     border: 1px solid #1AE000;
-    color: #1AE000;
+    color: darkgreen;
     padding-left: 5px;
     width: 120px;
     outline: none;

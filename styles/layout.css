@@ -16,24 +16,24 @@ div {
 }
 
 img#gameLogoContainerLeft {
-	position: absolute;
+	float: left;
 
 	-ms-transform: rotate(315deg); /* IE 9 */
     -webkit-transform: rotate(315deg); /* Chrome, Safari, Opera */
     transform: rotate(315deg);
 
-    top: 100px;
+    margin-top: 100px;
 }
 
 img#gameLogoContainerRight {
-	position: absolute;
+	float: right;
 	left: 930px;
 
 	-ms-transform: rotate(45deg); /* IE 9 */
     -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
     transform: rotate(45deg);
 
-    top: 100px;
+    margin-top: 100px;
 }
 
 

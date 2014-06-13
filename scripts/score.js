@@ -29,6 +29,13 @@ function goalScored(player) {
     }
 
     updateScoreBoard(player);
+    pauseResumeGame();
+
+    if (playerOneScore === gameSettings.goalsToWin || playerTwoScore === gameSettings.goalsToWin) {
+        endGame(player);
+    } else {
+        drawNotificationOnCanvas(gameSettings[player + 'Name'] + ' scored!!! Press P to resume the game');
+    }
 }
 
 function updateScoreBoard(player) {
@@ -62,8 +69,8 @@ function drawInitialScoreBoard() {
 
     resetAvatarFacesToNormal();
 
-    playerOneNameHTMLElement.innerText = gameSettings.playerOneName || 'Player 1';
-    playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName || 'Player 2';
+    playerOneNameHTMLElement.innerText = gameSettings.playerOneName;
+    playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName;
 }
 
 function drawSadAvatar(player) {

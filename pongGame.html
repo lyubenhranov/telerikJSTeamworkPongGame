@@ -24,8 +24,7 @@
     </div>
     <canvas id="gameFieldCanvas"></canvas>
     <div id="buttonContainer">
-        <button id="startGameButton">Start</button>
-        <button id="pauseResumeGameButton">Pause</button>
+        <button id="startGameButton">Start New Game</button>
     </div>
 </div>
 <input id="settings-btn" type="button" value="Show Settings">
@@ -36,8 +35,8 @@
                 <legend>Field settings</legend>
                 <label for="resolution">Field size:
                     <select id="resolution" name="field-size">
-                        <option value="300x150" selected>Small</option>
-                        <option value="500x280">Medium</option>
+                        <option value="300x150">Small</option>
+                        <option value="500x250" selected>Medium</option>
                         <option value="800x600">Large</option>
                     </select>
                 </label>
@@ -61,9 +60,9 @@
                 </label>
                 <label for="ball-radius">Ball speed:
                     <select id="ball-speed" name="ball-speed">
-                        <option value="1" selected>Slow</option>
-                        <option value="2">Fast</option>
-                        <option value="3">Very fast</option>
+                        <option value="1">Slow</option>
+                        <option value="1.5" selected>Fast</option>
+                        <option value="1.8">Very fast</option>
                     </select>
                 </label>
                 <label for="ball-fill-color">Ball color:

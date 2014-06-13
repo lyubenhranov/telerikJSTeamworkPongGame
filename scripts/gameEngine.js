@@ -1,25 +1,40 @@
 var gameTimer,
     startGameButton = document.getElementById('startGameButton'),
     pauseResumeGameButton = document.getElementById('pauseResumeGameButton'),
-    canvasElement=document.getElementById('gameFieldCanvas'),
+    canvasElement = document.getElementById('gameFieldCanvas'),
+    isGamePaused = false,
+    isGameStarted = false,
     gameFieldCanvas = canvasElement.getContext('2d');
 
-startGameButton.addEventListener('click', startGame, false);
-pauseResumeGameButton.addEventListener('click', pauseResumeGame, false);
+gameFieldCanvas.canvas.width = gameSettings.fieldWidth;
+gameFieldCanvas.canvas.height = gameSettings.fieldHeight;
 
-var theBall = new Ball(10,10,5);
+startGameButton.addEventListener('click', startGame, false);
+
+document.addEventListener('keydown', function(event) {
+    if (event.keyCode == 80) {
+        pauseResumeGame();
+    }
+}, false);
+
+var theBall = new Ball(10, 10, 5);
 
 function startGame() {
+    if (!isGameStarted) {
+        initializeSettings();
+        $('#startGameButton').hide();
+    };
+
+    isGameStarted = true;
     gameTimer = setInterval(playGame, gameSettings.gameSpeed);
-    initializeSettings();
     playGame();
 }
 
 function playGame() {
     clearGameField();
     applyRandomBonus();
-	theBall.draw(gameFieldCanvas);
-	theBall.update(gameFieldCanvas);
+    theBall.draw(gameFieldCanvas);
+    theBall.update(gameFieldCanvas);
     //drawBall();
     //moveBall();
 }
@@ -29,19 +44,24 @@ function clearGameField() {
 }
 
 function pauseResumeGame() {
-    if (pauseResumeGameButton.innerText === 'Pause') {
-        clearInterval(gameTimer);
-        pauseResumeGameButton.innerText = 'Resume';
-    }
-    else {
-        startGame();
-        pauseResumeGameButton.innerText = 'Pause';
-    }
+    if (isGameStarted) {
+        if (!isGamePaused) {
+            clearInterval(gameTimer);
+            isGamePaused = true;
+        } else {
+            startGame();
+            isGamePaused = false;
+        }
+    };
+}
+
+function endGame(winner) {
+    drawNotificationOnCanvas(gameSettings[winner + 'Name'] + ' WON!!!');
+    isGameStarted = false;
+    $('#startGameButton').show();
 }
 
 //Game Menu
-$(document).ready(function () {
-
+$(document).ready(function() {
     attachSettingsMenuEvents();
-
 });

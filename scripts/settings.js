@@ -18,8 +18,8 @@ var isMenuShown = false,
     gameSettings = {
         gameSpeed: 5,
         scoreNotDrawed: true,
-        playerOneName: p1Nickname,
-        playerTwoName: p2Nickname,
+        playerOneName: p1Nickname || 'Player 1',
+        playerTwoName: p2Nickname || 'Player 2',
         fieldWidth: fieldWidth,
         fieldHeight: fieldHeight,
         fieldColor: fieldColor,
@@ -30,13 +30,46 @@ var isMenuShown = false,
         ballSpeed: ballSpeed,
         p1RacketSize: p1RacketSize,
         p1RacketColor: p1RacketColor,
-        p1Nickname: p1Nickname
+        p1Nickname: p1Nickname,
+        goalsToWin: 6
     };
 
 function initializeSettings() {
     if (gameSettings.scoreNotDrawed) {
         drawInitialScoreBoard();
     }
+
+    canvasElement.width = gameSettings.fieldWidth;
+    canvasElement.height = gameSettings.fieldHeight;
+
+    gameSettings.gameSpeed = 5;
+    gameSettings.scoreNotDrawed = true;
+    gameSettings.playerOneName = p1Nickname || 'Player 1';
+    gameSettings.playerTwoName = p2Nickname || 'Player 2';
+    gameSettings.fieldWidth = fieldWidth;
+    gameSettings.fieldHeight = fieldHeight;
+    gameSettings.fieldColor = fieldColor;
+    gameSettings.backgroundColor = backgroundColor;
+    gameSettings.ballRadius = radius;
+    gameSettings.ballFillColor = ballFillColor;
+    gameSettings.ballStrokeColor = ballStrokeColor;
+    gameSettings.ballSpeed = ballSpeed;
+    gameSettings.p1RacketSize = p1RacketSize;
+    gameSettings.p1RacketColor = p1RacketColor;
+    gameSettings.p1Nickname = p1Nickname;
+    gameSettings.goalsToWin = 6;
+
+    playerOneScore = 0;
+    playerTwoScore = 0;
+
+    isBonusPresent = false;
+    isBonusInEffect = false;
+    timeStart = undefined;
+    timeElapsed = 0;
+    currentBonus = undefined;
+
+    isGamePaused = false;
+    isGameStarted = false;
 }
 
 function attachSettingsMenuEvents() {
@@ -66,7 +99,6 @@ function handleFieldSettingsEvents() {
         res = $('#resolution').val();
         gameSettings.fieldWidth = parseInt(res.split('x')[0]);
         gameSettings.fieldHeight = parseInt(res.split('x')[1]);
-        console.log(gameSettings.fieldWidth);
         $('#field').width(fieldWidth).height(fieldHeight);
     });
     $('#field-color').change(function() {
@@ -104,6 +136,7 @@ function handlePlayerOneSettingsEvents() {
     });
     $('#p1-nickname').change(function() {
         gameSettings.playerOneName = $('#p1-nickname').val();
+        playerOneNameHTMLElement.innerText = gameSettings.playerOneName;
     });
 }
 
@@ -116,5 +149,6 @@ function handlePlayerTwoSettingsEvents() {
     });
     $('#p2-nickname').change(function() {
         gameSettings.playerTwoName = $('#p2-nickname').val();
+        playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName;
     });
 }
