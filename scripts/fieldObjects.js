@@ -55,15 +55,15 @@ var bonusTypes = [{
 	applyEffect: function() {
 
 		if (theBall.vX > 0) {
-			theBall.x += getRandomIntWithinRange(1, -2);
+			theBall.x += getRandomIntInRange(1, -2);
 		} else {
-			theBall.x += getRandomIntWithinRange(-1, 2);
+			theBall.x += getRandomIntInRange(-1, 2);
 		}
 
 		if (theBall.vY > 0) {
-			theBall.y += getRandomIntWithinRange(1, -2);
+			theBall.y += getRandomIntInRange(1, -2);
 		} else {
-			theBall.y += getRandomIntWithinRange(-1, 2);
+			theBall.y += getRandomIntInRange(-1, 2);
 		}
 		theBall.speedMultiplier = 0.8;
 		timeOfLastApply = (new Date()).getTime() / 1000 - timeStart;
