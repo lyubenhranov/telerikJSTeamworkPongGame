@@ -142,8 +142,8 @@ function applyRandomBonus() {
 function getRandomBonus() {
 	var bonusindex = getRandomIntInRange(0, bonusTypes.length - 1);
 	var bonus = bonusTypes[bonusindex];
-	bonus.coords.x = getRandomIntInRange(10, canvasElement.width - 15);
-	bonus.coords.y = getRandomIntInRange(10, canvasElement.height - 15);
+	bonus.coords.x = getRandomIntInRange(30, canvasElement.width - 30);
+	bonus.coords.y = getRandomIntInRange(30, canvasElement.height - 30);
 	return bonus;
 }
 
