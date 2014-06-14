@@ -11,6 +11,7 @@ gameFieldCanvas.canvas.height = gameSettings.fieldHeight;
 startGameButton.addEventListener('click', startGame, false);
 
 var theBall = new Ball(10, 10, 5);
+console.log(gameSettings.ballRadius);
 var p1Racket = new Racket(15, gameFieldCanvas.canvas.height / 2 - gameSettings.p1RacketSize / 2, gameSettings.racketWidth, gameSettings.p1RacketSize, gameSettings.p1RacketFillColor, gameSettings.p1RacketStrokeColor);
 var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth - 15, gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth, gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, gameSettings.p2RacketStrokeColor);
 

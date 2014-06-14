@@ -112,17 +112,15 @@ function handleFieldSettingsEvents() {
         $('#field').width(fieldWidth).height(fieldHeight);
     });
     $('#field-color').change(function() {
-        gameSettings.fieldColor = $('#field-color').val();
-        $('#gameFieldCanvas').css('background', fieldColor);
+        $('#gameFieldCanvas').css("background-color", $("#field-color").val());
     });
     $('#background-color').change(function() {
-        gameSettings.backgroundColor = $('#background-color').val();
-        $('body').css('background', backgroundColor);
+        $('body').css("background-color", $("#background-color").val());
     });
 }
 
 function handleBallSettingsEvents() {
-    $('#ball-radius').click(function() {
+    $('#ball-radius').change(function() {
         gameSettings.radius = parseInt($('#ball-radius').val());
     });
     $('#ball-fill-color').change(function() {
