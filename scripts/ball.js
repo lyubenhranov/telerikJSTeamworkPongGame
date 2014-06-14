@@ -61,45 +61,21 @@ function Ball(x, y) {
 				this.vY = 2;
 			}
 	}
-/*
-    this.handleRacketCollision=function(){
-//TODO:collide with rackets
+
+    this.checkForRacketCollision=function(){
         //RacketOneCollision
         if ((this.x - this.r <= (p1Racket.x + p1Racket.width)) &&
             (this.y + this.r >= p1Racket.y && this.y - this.r <= p1Racket.y + p1Racket.height)) {
-            this.vX = 1;
-			//vY change depending on section of racket hit
-			if(this.y < p1Racket.y + p1Racket.height / 4){//top quarter of racket
-				this.vY = -2;
-			} else if (this.y < p1Racket.y + p1Racket.height / 2){//2nd quarter of racket from top
-				this.vY = -1;
-			} else if (this.y < p1Racket.y + p1Racket.height * 3 / 4){//3rd quarter of racket from top
-				this.vY = 1;
-			} else{
-				this.vY = 2;
-			}
         return 1;
         };
-
         //RacketTwoCollision
         if ((this.x + this.r >= p2Racket.x) &&
             (this.y + this.r >= p2Racket.y && this.y - this.r <= p2Racket.y + p2Racket.height)) {
-            this.vX = -1;
-			//vY change depending on section of racket hit
-			if(this.y < p2Racket.y + p2Racket.height / 4){//top quarter of racket
-				this.vY = -2;
-			} else if (this.y < p2Racket.y + p2Racket.height / 2){//2nd quarter of racket from top
-				this.vY = -1;
-			} else if (this.y < p2Racket.y + p2Racket.height * 3 / 4){//3rd quarter of racket from top
-				this.vY = 1;
-			} else{
-				this.vY = 2;
-			}
         return -1;
         };
 
         return 0;
-    }*/
+    }
 
     this.draw = function(canvas) {
         canvas.fillStyle = gameSettings.ballFillColor;

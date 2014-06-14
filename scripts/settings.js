@@ -125,7 +125,6 @@ function handleBallSettingsEvents() {
     });
     $('#ball-fill-color').change(function() {
         gameSettings.ballFillColor = $('#ball-fill-color').val();
-
     });
     $('#ball-stroke-color').change(function() {
         gameSettings.ballStrokeColor = $('#ball-stroke-color').val();

@@ -67,7 +67,7 @@ var bonusTypes = [{
 		}
 		theBall.speedMultiplier = 0.8;
 		timeOfLastApply = (new Date()).getTime() / 1000 - timeStart;
-		var collisionResult = theBall.handleRacketCollision();
+		var collisionResult = theBall.checkForRacketCollision();
 		if (collisionResult > 0) {
 			theBall.x += 15;
 			theBall.vX=1;
