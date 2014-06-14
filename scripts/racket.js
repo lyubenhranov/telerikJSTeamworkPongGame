@@ -44,15 +44,15 @@ function Racket(x, y, width, height, racketFill, ai) {
 		var reaction = false;
 		var roll = getRandomIntInRange(0,100);
 		if(this.ai == 'easy'){
-			if (roll > 80){
+			if (roll > 90){
 				reaction = true;
 			}
 		} else if (this.ai == 'normal'){
-			if (roll > 60){
+			if (roll > 80){
 				reaction = true;
 			}
 		} else if (this.ai == 'hard') {
-			if (roll > 40){
+			if (roll > 70){
 				reaction = true;
 			}
 		}
