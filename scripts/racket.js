@@ -4,7 +4,6 @@ function Racket(x, y, width, height, racketFill, ai) {
     this.width = width;
 	this.height = height;
 	this.racketFillColor = racketFill;
-	//this.racketStrokeColor = gameSettings;
 //    this.vX = 0; // To be used in case we decide to introduce horizontal movement
     this.vY = 0;
 	this.speed = 3;
@@ -13,12 +12,8 @@ function Racket(x, y, width, height, racketFill, ai) {
 
     this.update = function(canvas) {
 		//AI
-		if(ai == 'easy'){
-		
-		} else if (ai == 'normal'){
-		
-		} else if (ai == 'hard') {
-		
+		if (this.ai != 'none'){
+			this.aiControl();
 		}
         //move
         this.y += this.vY;
@@ -44,6 +39,33 @@ function Racket(x, y, width, height, racketFill, ai) {
         canvas.closePath();
         canvas.fill();
     };
+	
+	this.aiControl = function () {
+		var reaction = false;
+		var roll = getRandomIntInRange(0,100);
+		if(this.ai == 'easy'){
+			if (roll > 80){
+				reaction = true;
+			}
+		} else if (this.ai == 'normal'){
+			if (roll > 60){
+				reaction = true;
+			}
+		} else if (this.ai == 'hard') {
+			if (roll > 40){
+				reaction = true;
+			}
+		}
+		if (reaction){
+			if (theBall.y < this.y){
+				this.up();
+			} else if(theBall.y > this.y){
+				this.down();
+			} else {
+				this.stop();
+			}
+		}
+	}
 	
 	this.up = function() {
 		this.vY = -this.speed;

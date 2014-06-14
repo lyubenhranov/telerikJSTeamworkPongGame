@@ -147,6 +147,9 @@ function handlePlayerOneSettingsEvents() {
         gameSettings.playerOneName = $('#p1-nickname').val();
         playerOneNameHTMLElement.innerText = gameSettings.playerOneName;
     });
+	$('#p1-ai').change(function() {
+        p1Racket.ai = $('#p1-ai').val();
+    });
 }
 
 function handlePlayerTwoSettingsEvents() {
@@ -161,5 +164,8 @@ function handlePlayerTwoSettingsEvents() {
     $('#p2-nickname').change(function() {
         gameSettings.playerTwoName = $('#p2-nickname').val();
         playerTwoNameHTMLElement.innerText = gameSettings.playerTwoName;
+    });
+	$('#p2-ai').change(function() {
+        p2Racket.ai = $('#p2-ai').val();
     });
 }
