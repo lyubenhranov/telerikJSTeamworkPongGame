@@ -112,18 +112,21 @@ function handleFieldSettingsEvents() {
         $('#field').width(fieldWidth).height(fieldHeight);
     });
     $('#field-color').change(function() {
-        gameSettings.fieldColor = $('#field-color').val();
-        $('#gameFieldCanvas').css('background', fieldColor);
+        $('#gameFieldCanvas').css("background-color", $("#field-color").val());
     });
     $('#background-color').change(function() {
-        gameSettings.backgroundColor = $('#background-color').val();
-        $('body').css('background', backgroundColor);
+        $('body').css("background-color", $("#background-color").val());
     });
 }
 
 function handleBallSettingsEvents() {
+<<<<<<< HEAD
     $('#ball-radius').click(function() {
         gameSettings.ballRadius = parseInt($('#ball-radius').val());
+=======
+    $('#ball-radius').change(function() {
+        gameSettings.radius = parseInt($('#ball-radius').val());
+>>>>>>> origin/master
     });
     $('#ball-fill-color').change(function() {
         gameSettings.ballFillColor = $('#ball-fill-color').val();

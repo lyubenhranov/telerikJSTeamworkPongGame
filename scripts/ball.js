@@ -65,7 +65,7 @@ function Ball(x, y) {
         canvas.fillStyle = gameSettings.ballFillColor;
         canvas.strokeStyle = gameSettings.ballStrokeColor;
         canvas.beginPath();
-        canvas.arc(this.x, this.y, this.r, degreesToRadians(0), degreesToRadians(360));
+        canvas.arc(this.x, this.y, gameSettings.ballRadius, degreesToRadians(0), degreesToRadians(360));
         canvas.closePath();
         canvas.fill();
     };
