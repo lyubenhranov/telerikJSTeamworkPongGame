@@ -139,7 +139,8 @@ function handlePlayerOneSettingsEvents() {
         gameSettings.p1RacketSize = parseInt($('#p1-racket-size').val());
     });
     $('#p1-racket-color').change(function() {
-        gameSettings.p1RacketFillColor = $('p1-racket-color').val();
+        gameSettings.p1RacketFillColor = $('#p1-racket-color').val();
+		p1Racket.racketFillColor = gameSettings.p1RacketFillColor;
     });
     $('#p1-nickname').change(function() {
         gameSettings.playerOneName = $('#p1-nickname').val();
@@ -153,6 +154,7 @@ function handlePlayerTwoSettingsEvents() {
     });
     $('#p2-racket-color').change(function() {
         gameSettings.p2RacketFillColor = $('#p2-racket-color').val();
+		p2Racket.racketFillColor = gameSettings.p2RacketFillColor;
     });
     $('#p2-nickname').change(function() {
         gameSettings.playerTwoName = $('#p2-nickname').val();

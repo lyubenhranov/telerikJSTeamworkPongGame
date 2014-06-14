@@ -1,9 +1,9 @@
-function Racket(x, y, width, height) {
+function Racket(x, y, width, height, racketFill) {
     this.x = x;
     this.y = y;
     this.width = width;
 	this.height = height;
-	//this.racketFillColor = gameSettings.p1RacketFillColor;
+	this.racketFillColor = racketFill;
 	//this.racketStrokeColor = gameSettings;
 //    this.vX = 0; // To be used in case we decide to introduce horizontal movement
     this.vY = 0;
@@ -30,13 +30,15 @@ function Racket(x, y, width, height) {
     };
 
     this.draw = function(canvas) {
+		/*
     	if (this.x === 15){
         	canvas.fillStyle = gameSettings.p1RacketFillColor;
     	}
     	else {
     		canvas.fillStyle = gameSettings.p2RacketFillColor;
-    	}
+    	}*/
         //canvas.strokeStyle = this.racketStrokeColor;
+		canvas.fillStyle = this.racketFillColor;
         canvas.beginPath();
         canvas.fillRect(this.x, this.y, this.width, this.height);
         canvas.closePath();
