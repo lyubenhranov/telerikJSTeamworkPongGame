@@ -11,12 +11,12 @@ gameFieldCanvas.canvas.height = gameSettings.fieldHeight;
 startGameButton.addEventListener('click', startGame, false);
 
 var theBall = new Ball(gameFieldCanvas.canvas.width / 2, gameFieldCanvas.canvas.height / 2);
-var p1Racket = new Racket(15, gameFieldCanvas.canvas.height / 2 - gameSettings.p1RacketSize / 2, gameSettings.racketWidth, gameSettings.p1RacketSize, gameSettings.p1RacketFillColor);
-var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth - 15, gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth, gameSettings.p2RacketSize, gameSettings.p2RacketFillColor);
+var p1Racket = new Racket(15, gameFieldCanvas.canvas.height / 2 - gameSettings.p1RacketSize / 2, gameSettings.racketWidth, gameSettings.p1RacketSize, gameSettings.p1RacketFillColor, 'normal');
+var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth - 15, gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth, gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, 'none');
 
 document.addEventListener('keydown', function(event) {
     //If 'space' is pressed
-    if (event.keyCode == 32) {
+    if (event.keyCode == 80) {
         pauseResumeGame();
     } 
 	if (event.keyCode == 38) {

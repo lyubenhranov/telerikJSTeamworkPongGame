@@ -1,4 +1,4 @@
-function Racket(x, y, width, height, racketFill) {
+function Racket(x, y, width, height, racketFill, ai) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -8,9 +8,18 @@ function Racket(x, y, width, height, racketFill) {
 //    this.vX = 0; // To be used in case we decide to introduce horizontal movement
     this.vY = 0;
 	this.speed = 3;
+	this.ai = ai;
 //    this.sizeMultiplier = gameSettings.ballSpeed; // Could be used to resize the racket depending on the level
 
     this.update = function(canvas) {
+		//AI
+		if(ai == 'easy'){
+		
+		} else if (ai == 'normal'){
+		
+		} else if (ai == 'hard') {
+		
+		}
         //move
         this.y += this.vY;
 		//collide with walls
@@ -26,18 +35,9 @@ function Racket(x, y, width, height, racketFill) {
 				this.stop();
 			}
 		}
-		
     };
 
     this.draw = function(canvas) {
-		/*
-    	if (this.x === 15){
-        	canvas.fillStyle = gameSettings.p1RacketFillColor;
-    	}
-    	else {
-    		canvas.fillStyle = gameSettings.p2RacketFillColor;
-    	}*/
-        //canvas.strokeStyle = this.racketStrokeColor;
 		canvas.fillStyle = this.racketFillColor;
         canvas.beginPath();
         canvas.fillRect(this.x, this.y, this.width, this.height);
