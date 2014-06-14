@@ -15,29 +15,40 @@ var p1Racket = new Racket(15, gameFieldCanvas.canvas.height / 2 - gameSettings.p
 var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth - 15, gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth, gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, gameSettings.p2RacketStrokeColor);
 
 document.addEventListener('keydown', function(event) {
-    //If 'p' is pressed
-    if (event.keyCode == 80) {
+    //If 'space' is pressed
+    if (event.keyCode == 32) {
         pauseResumeGame();
-    } else if (event.keyCode == 38) {
+    } 
+	if (event.keyCode == 38) {
         //Up arrow key pressed
-        if (p1Racket.topLeft_y - 15 >= 0) {
-            p1Racket.topLeft_y -= 15;
-        };
+		p2Racket.up();
     } else if (event.keyCode == 40) {
         //Down arrow key pressed
-        if (p1Racket.topLeft_y + p1Racket.size_y + 15 <= gameFieldCanvas.canvas.height) {
-            p1Racket.topLeft_y += 15;
-        };
-    } else if (event.keyCode == 87) {
+        p2Racket.down();
+	}
+    if (event.keyCode == 87) {
         //W key pressed
-        if (p2Racket.topLeft_y - 15 >= 0) {
-            p2Racket.topLeft_y -= 15;
-        };
+        p1Racket.up();
     } else if (event.keyCode == 83) {
         //S key pressed
-        if (p2Racket.topLeft_y + p2Racket.size_y + 15 <= gameFieldCanvas.canvas.height) {
-            p2Racket.topLeft_y += 15;
-        };
+        p1Racket.down();
+    };
+}, false);
+
+document.addEventListener('keyup', function(event) {
+    if (event.keyCode == 38) {
+        //Up arrow key released
+        p2Racket.stop();
+    } else if (event.keyCode == 40) {
+        //Down arrow key released
+        p2Racket.stop();
+	}
+    if (event.keyCode == 87) {
+        //W key released
+        p1Racket.stop();
+    } else if (event.keyCode == 83) {
+        //S key released
+        p1Racket.stop();
     };
 }, false);
 
@@ -55,12 +66,12 @@ function startGame() {
 function playGame() {
     clearGameField();
     applyRandomBonus();
+	p1Racket.update(gameFieldCanvas);
     p1Racket.draw(gameFieldCanvas);
+	p2Racket.update(gameFieldCanvas);
     p2Racket.draw(gameFieldCanvas);
+	theBall.update(gameFieldCanvas);
     theBall.draw(gameFieldCanvas);
-    theBall.update(gameFieldCanvas);
-    //drawBall();
-    //moveBall();
 }
 
 function clearGameField() {

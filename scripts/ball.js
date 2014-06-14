@@ -44,16 +44,16 @@ function Ball(x, y) {
     this.handleRacketCollision=function(){
 //TODO:collide with rackets
         //RacketOneCollision
-        if ((this.x - this.r <= (p1Racket.topLeft_x + p1Racket.size_x)) &&
-            (this.y + this.r >= p1Racket.topLeft_y && this.y - this.r <= p1Racket.topLeft_y + p1Racket.size_y)) {
+        if ((this.x - this.r <= (p1Racket.x + p1Racket.width)) &&
+            (this.y + this.r >= p1Racket.y && this.y - this.r <= p1Racket.y + p1Racket.height)) {
             this.vX = 1;
 
         return 1;
         };
 
         //RacketTwoCollision
-        if ((this.x + this.r >= p2Racket.topLeft_x) &&
-            (this.y + this.r >= p2Racket.topLeft_y && this.y - this.r <= p2Racket.topLeft_y + p2Racket.size_y)) {
+        if ((this.x + this.r >= p2Racket.x) &&
+            (this.y + this.r >= p2Racket.y && this.y - this.r <= p2Racket.y + p2Racket.height)) {
             this.vX = -1;
         return -1;
         };

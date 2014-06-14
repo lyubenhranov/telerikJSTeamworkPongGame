@@ -34,7 +34,7 @@ function goalScored(player) {
     if (playerOneScore === gameSettings.goalsToWin || playerTwoScore === gameSettings.goalsToWin) {
         endGame(player);
     } else {
-        drawNotificationOnCanvas(gameSettings[player + 'Name'] + ' scored!!! Press P to resume the game');
+        drawNotificationOnCanvas(gameSettings[player + 'Name'] + ' scored!!! Press SPACE to resume the game');
     }
 }
 
