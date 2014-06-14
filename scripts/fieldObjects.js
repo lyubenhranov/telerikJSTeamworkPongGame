@@ -12,11 +12,9 @@ var bonusTypes = [{
 		y: undefined
 	},
 	applyEffect: function() {
-		//ball.ballSpeed += 2;
 		theBall.speedMultiplier = 0.5;
 	},
 	revertEffect: function() {
-		//ball.ballSpeed -= 2;
 		theBall.speedMultiplier = 1;
 	},
 	draw: function() {
@@ -98,11 +96,9 @@ var bonusTypes = [{
 		y: undefined
 	},
 	applyEffect: function() {
-		//ball.ballSpeed += 2;
 		theBall.r += 5;
 	},
 	revertEffect: function() {
-		//ball.ballSpeed -= 2;
 		theBall.r -= 5;
 	},
 	draw: function() {
@@ -144,10 +140,10 @@ function applyRandomBonus() {
 }
 
 function getRandomBonus() {
-	var bonusindex = getRandomValueInRange(bonusTypes.length - 1, 0);
+	var bonusindex = getRandomIntInRange(0, bonusTypes.length - 1);
 	var bonus = bonusTypes[bonusindex];
-	bonus.coords.x = getRandomValueInRange(canvasElement.width - 15, 10);
-	bonus.coords.y = getRandomValueInRange(canvasElement.height - 15, 10);
+	bonus.coords.x = getRandomIntInRange(10, canvasElement.width - 15);
+	bonus.coords.y = getRandomIntInRange(10, canvasElement.height - 15);
 	return bonus;
 }
 
