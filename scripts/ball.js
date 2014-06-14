@@ -1,12 +1,16 @@
-function Ball(x, y, r) {
+function Ball(x, y) {
     this.x = x;
     this.y = y;
-    this.r = r;
+	this.r = gameSettings.ballRadius;
     this.vX = 1;
     this.vY = 1;
     this.speedMultiplier = gameSettings.ballSpeed;
 
     this.update = function(canvas) {
+		//update radius
+		if(this.r != gameSettings.ballRadius){
+			this.r = gameSettings.ballRadius;
+		}
         //move
         this.x += this.vX * this.speedMultiplier;
         this.y += this.vY * this.speedMultiplier;

@@ -123,7 +123,7 @@ function handleFieldSettingsEvents() {
 
 function handleBallSettingsEvents() {
     $('#ball-radius').click(function() {
-        gameSettings.radius = parseInt($('#ball-radius').val());
+        gameSettings.ballRadius = parseInt($('#ball-radius').val());
     });
     $('#ball-fill-color').change(function() {
         gameSettings.ballFillColor = $('#ball-fill-color').val();
