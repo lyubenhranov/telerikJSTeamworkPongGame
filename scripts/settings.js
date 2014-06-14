@@ -120,13 +120,8 @@ function handleFieldSettingsEvents() {
 }
 
 function handleBallSettingsEvents() {
-<<<<<<< HEAD
-    $('#ball-radius').click(function() {
-        gameSettings.ballRadius = parseInt($('#ball-radius').val());
-=======
     $('#ball-radius').change(function() {
-        gameSettings.radius = parseInt($('#ball-radius').val());
->>>>>>> origin/master
+        gameSettings.ballRadius = parseInt($('#ball-radius').val());
     });
     $('#ball-fill-color').change(function() {
         gameSettings.ballFillColor = $('#ball-fill-color').val();
