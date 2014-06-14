@@ -139,7 +139,7 @@ function handlePlayerOneSettingsEvents() {
         gameSettings.p1RacketSize = parseInt($('#p1-racket-size').val());
     });
     $('#p1-racket-color').change(function() {
-        gameSettings.p1RacketFillColor = $('p1-racket-color').val();
+        gameSettings.p1RacketFillColor = $('#p1-racket-color').val();
     });
     $('#p1-nickname').change(function() {
         gameSettings.playerOneName = $('#p1-nickname').val();
