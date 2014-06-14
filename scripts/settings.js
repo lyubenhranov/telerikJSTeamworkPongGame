@@ -137,6 +137,7 @@ function handleBallSettingsEvents() {
 function handlePlayerOneSettingsEvents() {
     $('#p1-racket-size').change(function() {
         gameSettings.p1RacketSize = parseInt($('#p1-racket-size').val());
+        p1Racket.height = gameSettings.p1RacketSize;
     });
     $('#p1-racket-color').change(function() {
         gameSettings.p1RacketFillColor = $('#p1-racket-color').val();
@@ -151,6 +152,7 @@ function handlePlayerOneSettingsEvents() {
 function handlePlayerTwoSettingsEvents() {
     $('#p2-racket-size').change(function() {
         gameSettings.p2RacketSize = parseInt($('#p2-racket-size').val());
+        p2Racket.height = gameSettings.p2RacketSize;
     });
     $('#p2-racket-color').change(function() {
         gameSettings.p2RacketFillColor = $('#p2-racket-color').val();
