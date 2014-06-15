@@ -96,10 +96,10 @@ var bonusTypes = [{
 		y: undefined
 	},
 	applyEffect: function() {
-		theBall.r += 5;
+		gameSettings.ballRadius += 10;
 	},
 	revertEffect: function() {
-		theBall.r -= 5;
+		gameSettings.ballRadius -= 10;
 	},
 	draw: function() {
 		var fill = gameFieldCanvas.fillStyle;
