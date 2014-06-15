@@ -30,37 +30,38 @@ document.addEventListener('keydown', function(event) {
 				//S key pressed
 				p1Racket.down();
 			}
+	}
+	if(p2Racket.ai == 'none'){
+		if (event.keyCode == 38) {
+			//Up arrow key pressed
+			p2Racket.up();
+		} else if (event.keyCode == 40) {
+			//Down arrow key pressed
+			p2Racket.down();
 		}
-		if(p2Racket.ai == 'none'){
-			if (event.keyCode == 38) {
-				//Up arrow key pressed
-				p2Racket.up();
-			} else if (event.keyCode == 40) {
-				//Down arrow key pressed
-				p2Racket.down();
-			}
-		};
+	};
 }, false);
-	document.addEventListener('keyup', function(event) {
-		if (p1Racket.ai == 'none'){
-			if (event.keyCode == 87) {
-				//W key released
-				p1Racket.stop();
-			} else if (event.keyCode == 83) {
-				//S key released
-				p1Racket.stop();
-			}
+
+document.addEventListener('keyup', function(event) {
+	if (p1Racket.ai == 'none'){
+		if (event.keyCode == 87) {
+			//W key released
+			p1Racket.stop();
+		} else if (event.keyCode == 83) {
+			//S key released
+			p1Racket.stop();
 		}
-		if(p2Racket.ai == 'none'){
-			if (event.keyCode == 38) {
-				//Up arrow key released
-				p2Racket.stop();
-			} else if (event.keyCode == 40) {
-				//Down arrow key released
-				p2Racket.stop();
-			}
-		};
-	}, false);
+	}
+	if(p2Racket.ai == 'none'){
+		if (event.keyCode == 38) {
+			//Up arrow key released
+			p2Racket.stop();
+		} else if (event.keyCode == 40) {
+			//Down arrow key released
+			p2Racket.stop();
+		}
+	};
+}, false);
 
 function startGame() {
     if (!isGameStarted) {
