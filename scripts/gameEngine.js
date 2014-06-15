@@ -18,7 +18,7 @@ var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidt
 	gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, 'none');
 
 document.addEventListener('keydown', function(event) {
-    //If 'space' is pressed
+    //If 'P' is pressed
     if (event.keyCode == 80) {
         pauseResumeGame();
     } 
@@ -75,7 +75,7 @@ function startGame() {
 
 function playGame() {
     clearGameField();
-    applyRandomBonus();
+    applyRandomBonus(gameFieldCanvas);
 	p1Racket.update(gameFieldCanvas);
     p1Racket.draw(gameFieldCanvas);
 	p2Racket.update(gameFieldCanvas);

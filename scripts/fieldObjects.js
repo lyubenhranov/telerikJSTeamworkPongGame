@@ -110,7 +110,7 @@ var bonusTypes = [{
 	}
 }];
 
-function applyRandomBonus() {
+function applyRandomBonus(canvas) {
 	if (gameSettings.isGamePaused) {
 		wasPaused = true;
 	}
@@ -120,6 +120,7 @@ function applyRandomBonus() {
 		isBonusPresent = true;
 	}
 	if (isBonusInEffect) {
+		canvas.fillStyle = gameSettings.textColor;
 		drawNotificationOnCanvas('Bonus in effect: ' + currentBonus.name + '! Time Left: ' + Math.floor(currentBonus.duration - timeElapsed), 15, 15);
 		timeElapsed += gameSettings.gameSpeed / 1000;
 		if (timeElapsed >= currentBonus.duration) {

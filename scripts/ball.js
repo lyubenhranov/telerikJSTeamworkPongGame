@@ -1,15 +1,23 @@
 function Ball(x, y) {
     this.x = x;
     this.y = y;
-	this.r = gameSettings.ballRadius;
     this.vX = 1;
     this.vY = 1;
+	this.r = gameSettings.ballRadius;
     this.speedMultiplier = gameSettings.ballSpeed;
+	this.fillColor = gameSettings.ballFillColor;
+	this.strokeColor = gameSettings.ballStrokeColor;
 
     this.update = function(canvas) {
-		//update radius
+		//update fields
 		if(this.r != gameSettings.ballRadius){
 			this.r = gameSettings.ballRadius;
+		}
+		if (this.fillColor != gameSettings.ballFillColor){
+			this.fillColor = gameSettings.ballFillColor;
+		}
+		if (this.strokeColor != gameSettings.ballStrokeColor){
+			this.strokeColor = gameSettings.ballStrokeColor;
 		}
         //move
         this.x += this.vX * this.speedMultiplier;
@@ -78,8 +86,8 @@ function Ball(x, y) {
     }
 
     this.draw = function(canvas) {
-        canvas.fillStyle = gameSettings.ballFillColor;
-        canvas.strokeStyle = gameSettings.ballStrokeColor;
+        canvas.fillStyle = this.fillColor;
+        canvas.strokeStyle = this.strokeColor;
         canvas.beginPath();
         canvas.arc(this.x, this.y, this.r, degreesToRadians(0), degreesToRadians(360));
         canvas.closePath();

@@ -4,12 +4,13 @@ function Racket(x, y, width, height, racketFill, ai) {
     this.width = width;
 	this.height = height;
 	this.racketFillColor = racketFill;
-//    this.vX = 0; // To be used in case we decide to introduce horizontal movement
+    //this.vX = 0; // To be used in case we decide to introduce horizontal movement
     this.vY = 0;
 	this.speed = 3;
 	this.ai = ai;
-//    this.sizeMultiplier = gameSettings.ballSpeed; // Could be used to resize the racket depending on the level
+    //this.sizeMultiplier = 1; // Could be used to resize the racket depending on the level
 
+	//TODO: implement a way to update p1/p2 settings, following proper OOP practices
     this.update = function(canvas) {
 		//AI
 		if (this.ai != 'none'){
