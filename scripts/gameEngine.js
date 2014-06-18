@@ -11,56 +11,56 @@ gameFieldCanvas.canvas.height = gameSettings.fieldHeight;
 startGameButton.addEventListener('click', startGame, false);
 
 var theBall = new Ball(gameFieldCanvas.canvas.width / 2, gameFieldCanvas.canvas.height / 2);
-var p1Racket = new Racket(15, gameFieldCanvas.canvas.height / 2 - gameSettings.p1RacketSize / 2, gameSettings.racketWidth, 
-	gameSettings.p1RacketSize, gameSettings.p1RacketFillColor, 'easy');
-var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth - 15, 
-	gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth, 
-	gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, 'none');
+var p1Racket = new Racket(15, gameFieldCanvas.canvas.height / 2 - gameSettings.p1RacketSize / 2, gameSettings.racketWidth,
+    gameSettings.p1RacketSize, gameSettings.p1RacketFillColor, $('#p1-ai').val());
+var p2Racket = new Racket(gameFieldCanvas.canvas.width - gameSettings.racketWidth - 15,
+    gameFieldCanvas.canvas.height / 2 - gameSettings.p2RacketSize / 2, gameSettings.racketWidth,
+    gameSettings.p2RacketSize, gameSettings.p2RacketFillColor, $('#p2-ai').val());
 
 document.addEventListener('keydown', function(event) {
     //If 'P' is pressed
     if (event.keyCode == 80) {
         pauseResumeGame();
-    } 
-	if (p1Racket.ai == 'none'){
-			if (event.keyCode == 87) {
-				//W key pressed
-				p1Racket.up();
-			} else if (event.keyCode == 83) {
-				//S key pressed
-				p1Racket.down();
-			}
-	}
-	if(p2Racket.ai == 'none'){
-		if (event.keyCode == 38) {
-			//Up arrow key pressed
-			p2Racket.up();
-		} else if (event.keyCode == 40) {
-			//Down arrow key pressed
-			p2Racket.down();
-		}
-	};
+    }
+    if (p1Racket.ai == 'none') {
+        if (event.keyCode == 87) {
+            //W key pressed
+            p1Racket.up();
+        } else if (event.keyCode == 83) {
+            //S key pressed
+            p1Racket.down();
+        }
+    }
+    if (p2Racket.ai == 'none') {
+        if (event.keyCode == 38) {
+            //Up arrow key pressed
+            p2Racket.up();
+        } else if (event.keyCode == 40) {
+            //Down arrow key pressed
+            p2Racket.down();
+        }
+    };
 }, false);
 
 document.addEventListener('keyup', function(event) {
-	if (p1Racket.ai == 'none'){
-		if (event.keyCode == 87) {
-			//W key released
-			p1Racket.stop();
-		} else if (event.keyCode == 83) {
-			//S key released
-			p1Racket.stop();
-		}
-	}
-	if(p2Racket.ai == 'none'){
-		if (event.keyCode == 38) {
-			//Up arrow key released
-			p2Racket.stop();
-		} else if (event.keyCode == 40) {
-			//Down arrow key released
-			p2Racket.stop();
-		}
-	};
+    if (p1Racket.ai == 'none') {
+        if (event.keyCode == 87) {
+            //W key released
+            p1Racket.stop();
+        } else if (event.keyCode == 83) {
+            //S key released
+            p1Racket.stop();
+        }
+    }
+    if (p2Racket.ai == 'none') {
+        if (event.keyCode == 38) {
+            //Up arrow key released
+            p2Racket.stop();
+        } else if (event.keyCode == 40) {
+            //Down arrow key released
+            p2Racket.stop();
+        }
+    };
 }, false);
 
 function startGame() {
@@ -77,11 +77,11 @@ function startGame() {
 function playGame() {
     clearGameField();
     applyRandomBonus(gameFieldCanvas);
-	p1Racket.update(gameFieldCanvas);
+    p1Racket.update(gameFieldCanvas);
     p1Racket.draw(gameFieldCanvas);
-	p2Racket.update(gameFieldCanvas);
+    p2Racket.update(gameFieldCanvas);
     p2Racket.draw(gameFieldCanvas);
-	theBall.update(gameFieldCanvas);
+    theBall.update(gameFieldCanvas);
     theBall.draw(gameFieldCanvas);
 }
 
